@@ -90,6 +90,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmABMDeCategorias.resx">
+      <DependentUpon>frmABMDeCategorias.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmListadoDeArticulos.resx">
       <DependentUpon>frmListadoDeArticulos.cs</DependentUpon>
     </EmbeddedResource>

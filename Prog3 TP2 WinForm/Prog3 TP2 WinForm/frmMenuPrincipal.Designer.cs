@@ -50,7 +50,7 @@ namespace Prog3_TP2_WinForm
             this.marcasToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(950, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -66,14 +66,14 @@ namespace Prog3_TP2_WinForm
             // altaBajaOModificaciónToolStripMenuItem
             // 
             this.altaBajaOModificaciónToolStripMenuItem.Name = "altaBajaOModificaciónToolStripMenuItem";
-            this.altaBajaOModificaciónToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.altaBajaOModificaciónToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.altaBajaOModificaciónToolStripMenuItem.Text = "ABM";
             this.altaBajaOModificaciónToolStripMenuItem.Click += new System.EventHandler(this.altaBajaOModificaciónToolStripMenuItem_Click);
             // 
             // listadoToolStripMenuItem
             // 
             this.listadoToolStripMenuItem.Name = "listadoToolStripMenuItem";
-            this.listadoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.listadoToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.listadoToolStripMenuItem.Text = "Listado";
             this.listadoToolStripMenuItem.Click += new System.EventHandler(this.listadoToolStripMenuItem_Click);
             // 
@@ -89,14 +89,14 @@ namespace Prog3_TP2_WinForm
             // aBMToolStripMenuItem
             // 
             this.aBMToolStripMenuItem.Name = "aBMToolStripMenuItem";
-            this.aBMToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aBMToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.aBMToolStripMenuItem.Text = "ABM";
             this.aBMToolStripMenuItem.Click += new System.EventHandler(this.aBMToolStripMenuItem_Click);
             // 
             // listadoToolStripMenuItem1
             // 
             this.listadoToolStripMenuItem1.Name = "listadoToolStripMenuItem1";
-            this.listadoToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.listadoToolStripMenuItem1.Size = new System.Drawing.Size(112, 22);
             this.listadoToolStripMenuItem1.Text = "Listado";
             this.listadoToolStripMenuItem1.Click += new System.EventHandler(this.listadoToolStripMenuItem1_Click);
             // 
@@ -112,14 +112,14 @@ namespace Prog3_TP2_WinForm
             // aBMToolStripMenuItem1
             // 
             this.aBMToolStripMenuItem1.Name = "aBMToolStripMenuItem1";
-            this.aBMToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.aBMToolStripMenuItem1.Size = new System.Drawing.Size(112, 22);
             this.aBMToolStripMenuItem1.Text = "ABM";
             this.aBMToolStripMenuItem1.Click += new System.EventHandler(this.aBMToolStripMenuItem1_Click);
             // 
             // listadoToolStripMenuItem2
             // 
             this.listadoToolStripMenuItem2.Name = "listadoToolStripMenuItem2";
-            this.listadoToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.listadoToolStripMenuItem2.Size = new System.Drawing.Size(112, 22);
             this.listadoToolStripMenuItem2.Text = "Listado";
             this.listadoToolStripMenuItem2.Click += new System.EventHandler(this.listadoToolStripMenuItem2_Click);
             // 
@@ -127,12 +127,13 @@ namespace Prog3_TP2_WinForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(950, 573);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmMenuPrincipal";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menú Principal";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.menuStrip1.ResumeLayout(false);
