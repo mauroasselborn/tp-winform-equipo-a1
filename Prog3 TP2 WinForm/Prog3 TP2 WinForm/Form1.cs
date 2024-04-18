@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Dominio;
 
 namespace Prog3_TP2_WinForm
 {
@@ -25,23 +26,15 @@ namespace Prog3_TP2_WinForm
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            DGVArticulos.ColumnCount = 6;
-            DGVArticulos.Columns[0].Name = "Codigo";
-            DGVArticulos.Columns[1].Name = "Nombre";
-            DGVArticulos.Columns[2].Name = "Descripcion";
-            DGVArticulos.Columns[3].Name = "Marca";
-            DGVArticulos.Columns[4].Name = "Categoria";
-            DGVArticulos.Columns[5].Name = "Precio";
-
             #region Datos que use de prueba
-            ArrayList A = new ArrayList();
-            A.Add("a");
-            A.Add("a");
-            A.Add("a");
-            A.Add("a");
-            A.Add("a");
-            A.Add("a");
-            DGVArticulos.Rows.Add(A.ToArray());
+           List<Producto> lstproducto = new List<Producto>();
+           Producto producto = new Producto();
+
+            producto.Codigo = 123;
+            producto.Nombre = "A";
+            lstproducto.Add(producto);
+
+            DGVArticulos.DataSource = lstproducto;
             #endregion
 
             DataGridViewButtonColumn btnDetalle = new DataGridViewButtonColumn();
@@ -53,6 +46,7 @@ namespace Prog3_TP2_WinForm
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseColumnTextForButtonValue = true;
             DGVArticulos.Columns.Add(btnEliminar);
+
 
         }
 
