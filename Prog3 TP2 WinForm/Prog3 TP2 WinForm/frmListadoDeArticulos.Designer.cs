@@ -1,6 +1,6 @@
 ﻿namespace Prog3_TP2_WinForm
 {
-    partial class Form1
+    partial class frmListadoDeArticulos
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -51,18 +51,18 @@
             this.button1.TabIndex = 1;
             this.button1.Text = "Agregar";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Form1
+            // frmListadoDeArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(991, 450);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.DGVArticulos);
-            this.Name = "Form1";
-            this.Text = "Ecommerce";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Name = "frmListadoDeArticulos";
+            this.ShowIcon = false;
+            this.Text = "Listado de Articulos";
+            this.Load += new System.EventHandler(this.frmListadoDeArticulos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DGVArticulos)).EndInit();
             this.ResumeLayout(false);
 

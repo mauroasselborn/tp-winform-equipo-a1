@@ -12,23 +12,18 @@ using Dominio;
 
 namespace Prog3_TP2_WinForm
 {
-    public partial class Form1 : Form
+    public partial class frmListadoDeArticulos : Form
     {
-        public Form1()
+        public frmListadoDeArticulos()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
+        private void frmListadoDeArticulos_Load(object sender, EventArgs e)
         {
             #region Datos que use de prueba
-           List<Producto> lstproducto = new List<Producto>();
-           Producto producto = new Producto();
+           List<Articulo> lstproducto = new List<Articulo>();
+           Articulo producto = new Articulo();
 
             producto.Codigo = 123;
             producto.Nombre = "A";
