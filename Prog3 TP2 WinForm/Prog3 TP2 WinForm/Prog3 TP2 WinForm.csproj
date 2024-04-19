@@ -46,23 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmArticulos.cs">
+    <Compile Include="frmMenuCategorias.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmArticulos.Designer.cs">
-      <DependentUpon>frmArticulos.cs</DependentUpon>
+    <Compile Include="frmMenuCategorias.Designer.cs">
+      <DependentUpon>frmMenuCategorias.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmCategorias.cs">
+    <Compile Include="frmMenuMarcas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCategorias.Designer.cs">
-      <DependentUpon>frmCategorias.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmMarcas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmMarcas.Designer.cs">
-      <DependentUpon>frmMarcas.cs</DependentUpon>
+    <Compile Include="frmMenuMarcas.Designer.cs">
+      <DependentUpon>frmMenuMarcas.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMenuPrincipal.cs">
       <SubType>Form</SubType>
@@ -70,16 +64,25 @@
     <Compile Include="frmMenuPrincipal.Designer.cs">
       <DependentUpon>frmMenuPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmMenuArticulos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMenuArticulos.Designer.cs">
+      <DependentUpon>frmMenuArticulos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmArticulos.resx">
-      <DependentUpon>frmArticulos.cs</DependentUpon>
+    <EmbeddedResource Include="frmMenuCategorias.resx">
+      <DependentUpon>frmMenuCategorias.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCategorias.resx">
-      <DependentUpon>frmCategorias.cs</DependentUpon>
+    <EmbeddedResource Include="frmMenuMarcas.resx">
+      <DependentUpon>frmMenuMarcas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMenuPrincipal.resx">
       <DependentUpon>frmMenuPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMenuArticulos.resx">
+      <DependentUpon>frmMenuArticulos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -112,6 +115,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\imgMenuPrincipal.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgMarcas.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgCategorias.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

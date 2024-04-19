@@ -63,6 +63,26 @@ namespace Prog3_TP2_WinForm.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap imgCategorias {
+            get {
+                object obj = ResourceManager.GetObject("imgCategorias", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap imgMarcas {
+            get {
+                object obj = ResourceManager.GetObject("imgMarcas", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap imgMenuPrincipal {
             get {
                 object obj = ResourceManager.GetObject("imgMenuPrincipal", resourceCulture);
