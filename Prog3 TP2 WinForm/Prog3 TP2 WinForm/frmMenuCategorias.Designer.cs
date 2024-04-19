@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnEditarCategoria = new System.Windows.Forms.Button();
             this.btnEliminarCategoria = new System.Windows.Forms.Button();
@@ -37,9 +37,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.dgvListaCategorias = new System.Windows.Forms.DataGridView();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dgvcIDCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvcNombreCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaCategorias)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -110,7 +110,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(254, 35);
             this.label7.TabIndex = 0;
-            this.label7.Text = "Categoría";
+            this.label7.Text = "Datos de Categoría";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dgvListaCategorias
@@ -125,6 +125,21 @@
             this.dgvListaCategorias.Size = new System.Drawing.Size(248, 488);
             this.dgvListaCategorias.TabIndex = 6;
             // 
+            // dgvcIDCategoria
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvcIDCategoria.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvcIDCategoria.HeaderText = "ID";
+            this.dgvcIDCategoria.Name = "dgvcIDCategoria";
+            this.dgvcIDCategoria.ReadOnly = true;
+            // 
+            // dgvcNombreCategoria
+            // 
+            this.dgvcNombreCategoria.HeaderText = "Nombre";
+            this.dgvcNombreCategoria.Name = "dgvcNombreCategoria";
+            this.dgvcNombreCategoria.ReadOnly = true;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Prog3_TP2_WinForm.Properties.Resources.imgCategorias;
@@ -135,21 +150,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
-            // 
-            // dgvcIDCategoria
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            this.dgvcIDCategoria.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvcIDCategoria.HeaderText = "ID";
-            this.dgvcIDCategoria.Name = "dgvcIDCategoria";
-            this.dgvcIDCategoria.ReadOnly = true;
-            // 
-            // dgvcNombreCategoria
-            // 
-            this.dgvcNombreCategoria.HeaderText = "Nombre";
-            this.dgvcNombreCategoria.Name = "dgvcNombreCategoria";
-            this.dgvcNombreCategoria.ReadOnly = true;
             // 
             // frmMenuCategorias
             // 

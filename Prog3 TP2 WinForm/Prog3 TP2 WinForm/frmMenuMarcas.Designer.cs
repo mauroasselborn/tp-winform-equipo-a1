@@ -37,9 +37,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.dgvListaMarcas = new System.Windows.Forms.DataGridView();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dgvcIDMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvcNombreMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaMarcas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -110,7 +110,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(254, 35);
             this.label7.TabIndex = 0;
-            this.label7.Text = "Marca";
+            this.label7.Text = "Datos de Marca";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dgvListaMarcas
@@ -124,17 +124,6 @@
             this.dgvListaMarcas.ReadOnly = true;
             this.dgvListaMarcas.Size = new System.Drawing.Size(248, 488);
             this.dgvListaMarcas.TabIndex = 9;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Prog3_TP2_WinForm.Properties.Resources.imgMarcas;
-            this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(254, 212);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 10;
-            this.pictureBox1.TabStop = false;
             // 
             // dgvcIDMarca
             // 
@@ -150,6 +139,17 @@
             this.dgvcNombreMarca.HeaderText = "Nombre";
             this.dgvcNombreMarca.Name = "dgvcNombreMarca";
             this.dgvcNombreMarca.ReadOnly = true;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Prog3_TP2_WinForm.Properties.Resources.imgMarcas;
+            this.pictureBox1.InitialImage = null;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(254, 212);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.TabStop = false;
             // 
             // frmMenuMarcas
             // 
