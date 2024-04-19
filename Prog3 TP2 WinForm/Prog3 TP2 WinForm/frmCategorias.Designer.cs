@@ -1,7 +1,7 @@
 ﻿
 namespace Prog3_TP2_WinForm
 {
-    partial class frmABMDeMarcas
+    partial class frmCategorias
     {
         /// <summary>
         /// Required designer variable.
@@ -29,10 +29,18 @@ namespace Prog3_TP2_WinForm
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // frmABMDeCategorias
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "frmABMDeMarcas";
+            this.Name = "frmABMDeCategorias";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "frmABMDeCategorias";
+            this.ResumeLayout(false);
+
         }
 
         #endregion

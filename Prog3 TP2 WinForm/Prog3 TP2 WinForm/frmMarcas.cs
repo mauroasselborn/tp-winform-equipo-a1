@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Prog3_TP2_WinForm
 {
-    public partial class frmListadoDeCategorias : Form
+    public partial class frmMarcas : Form
     {
-        public frmListadoDeCategorias()
+        public frmMarcas()
         {
             InitializeComponent();
         }

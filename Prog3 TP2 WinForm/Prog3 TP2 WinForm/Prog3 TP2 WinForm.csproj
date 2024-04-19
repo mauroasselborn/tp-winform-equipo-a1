@@ -46,41 +46,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmABMDeArticulos.cs">
+    <Compile Include="frmArticulos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmABMDeArticulos.Designer.cs">
-      <DependentUpon>frmABMDeArticulos.cs</DependentUpon>
+    <Compile Include="frmArticulos.Designer.cs">
+      <DependentUpon>frmArticulos.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmABMDeCategorias.cs">
+    <Compile Include="frmCategorias.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmABMDeCategorias.Designer.cs">
-      <DependentUpon>frmABMDeCategorias.cs</DependentUpon>
+    <Compile Include="frmCategorias.Designer.cs">
+      <DependentUpon>frmCategorias.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmABMDeMarcas.cs">
+    <Compile Include="frmMarcas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmABMDeMarcas.Designer.cs">
-      <DependentUpon>frmABMDeMarcas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmListadoDeArticulos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmListadoDeArticulos.Designer.cs">
-      <DependentUpon>frmListadoDeArticulos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmListadoDeCategorias.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmListadoDeCategorias.Designer.cs">
-      <DependentUpon>frmListadoDeCategorias.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmListadoDeMarcas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmListadoDeMarcas.Designer.cs">
-      <DependentUpon>frmListadoDeMarcas.cs</DependentUpon>
+    <Compile Include="frmMarcas.Designer.cs">
+      <DependentUpon>frmMarcas.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMenuPrincipal.cs">
       <SubType>Form</SubType>
@@ -90,11 +72,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmABMDeCategorias.resx">
-      <DependentUpon>frmABMDeCategorias.cs</DependentUpon>
+    <EmbeddedResource Include="frmArticulos.resx">
+      <DependentUpon>frmArticulos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmListadoDeArticulos.resx">
-      <DependentUpon>frmListadoDeArticulos.cs</DependentUpon>
+    <EmbeddedResource Include="frmCategorias.resx">
+      <DependentUpon>frmCategorias.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMenuPrincipal.resx">
       <DependentUpon>frmMenuPrincipal.cs</DependentUpon>
@@ -107,6 +89,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -126,6 +109,9 @@
       <Project>{78f07f51-0f04-43a8-9231-9e52c7865844}</Project>
       <Name>Dominio</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\imgMenuPrincipal.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
