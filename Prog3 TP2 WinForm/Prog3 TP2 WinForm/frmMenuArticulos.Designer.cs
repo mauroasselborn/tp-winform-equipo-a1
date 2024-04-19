@@ -29,7 +29,7 @@ namespace Prog3_TP2_WinForm
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvListaArticulos = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnEditarArticulo = new System.Windows.Forms.Button();
@@ -46,13 +46,13 @@ namespace Prog3_TP2_WinForm
             this.txtCodigoArticulo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.cgvcIDArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cgvcCodigoArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.dgvcIDArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvcCodigoArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvcNombreArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvcDescripcionArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvcMarcaArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvcCategoriaArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaArticulos)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -62,8 +62,8 @@ namespace Prog3_TP2_WinForm
             // 
             this.dgvListaArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListaArticulos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.cgvcIDArticulo,
-            this.cgvcCodigoArticulo,
+            this.dgvcIDArticulo,
+            this.dgvcCodigoArticulo,
             this.dgvcNombreArticulo,
             this.dgvcDescripcionArticulo,
             this.dgvcMarcaArticulo,
@@ -216,20 +216,31 @@ namespace Prog3_TP2_WinForm
             this.label7.Text = "Datos del Artículo";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // cgvcIDArticulo
+            // pictureBox1
             // 
-            this.cgvcIDArticulo.HeaderText = "ID";
-            this.cgvcIDArticulo.Name = "cgvcIDArticulo";
-            this.cgvcIDArticulo.ReadOnly = true;
+            this.pictureBox1.Image = global::Prog3_TP2_WinForm.Properties.Resources.imgMenuPrincipal;
+            this.pictureBox1.InitialImage = null;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(254, 212);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
             // 
-            // cgvcCodigoArticulo
+            // dgvcIDArticulo
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            this.cgvcCodigoArticulo.DefaultCellStyle = dataGridViewCellStyle2;
-            this.cgvcCodigoArticulo.HeaderText = "Código";
-            this.cgvcCodigoArticulo.Name = "cgvcCodigoArticulo";
-            this.cgvcCodigoArticulo.ReadOnly = true;
+            this.dgvcIDArticulo.HeaderText = "ID";
+            this.dgvcIDArticulo.Name = "dgvcIDArticulo";
+            this.dgvcIDArticulo.ReadOnly = true;
+            // 
+            // dgvcCodigoArticulo
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvcCodigoArticulo.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvcCodigoArticulo.HeaderText = "Código";
+            this.dgvcCodigoArticulo.Name = "dgvcCodigoArticulo";
+            this.dgvcCodigoArticulo.ReadOnly = true;
             // 
             // dgvcNombreArticulo
             // 
@@ -254,17 +265,6 @@ namespace Prog3_TP2_WinForm
             this.dgvcCategoriaArticulo.HeaderText = "Categoría";
             this.dgvcCategoriaArticulo.Name = "dgvcCategoriaArticulo";
             this.dgvcCategoriaArticulo.ReadOnly = true;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Prog3_TP2_WinForm.Properties.Resources.imgMenuPrincipal;
-            this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(254, 212);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
             // 
             // frmMenuArticulos
             // 
@@ -307,8 +307,8 @@ namespace Prog3_TP2_WinForm
         private System.Windows.Forms.Button btnEditarArticulo;
         private System.Windows.Forms.Button btnEliminarArticulo;
         private System.Windows.Forms.Button btnAgregarArticulo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cgvcIDArticulo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cgvcCodigoArticulo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvcIDArticulo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvcCodigoArticulo;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvcNombreArticulo;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvcDescripcionArticulo;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvcMarcaArticulo;

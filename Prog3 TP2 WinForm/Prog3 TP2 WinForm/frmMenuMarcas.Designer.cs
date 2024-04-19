@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnEditarMarca = new System.Windows.Forms.Button();
             this.btnEliminarMarca = new System.Windows.Forms.Button();
@@ -36,12 +36,12 @@
             this.txtDescripcionMarca = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.dgvListaArticulos = new System.Windows.Forms.DataGridView();
+            this.dgvListaMarcas = new System.Windows.Forms.DataGridView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.cgvcCodigoMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvcIDMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvcNombreMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvListaArticulos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListaMarcas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -113,17 +113,17 @@
             this.label7.Text = "Marca";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // dgvListaArticulos
+            // dgvListaMarcas
             // 
-            this.dgvListaArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListaArticulos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.cgvcCodigoMarca,
+            this.dgvListaMarcas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListaMarcas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvcIDMarca,
             this.dgvcNombreMarca});
-            this.dgvListaArticulos.Location = new System.Drawing.Point(275, 12);
-            this.dgvListaArticulos.Name = "dgvListaArticulos";
-            this.dgvListaArticulos.ReadOnly = true;
-            this.dgvListaArticulos.Size = new System.Drawing.Size(248, 488);
-            this.dgvListaArticulos.TabIndex = 9;
+            this.dgvListaMarcas.Location = new System.Drawing.Point(275, 12);
+            this.dgvListaMarcas.Name = "dgvListaMarcas";
+            this.dgvListaMarcas.ReadOnly = true;
+            this.dgvListaMarcas.Size = new System.Drawing.Size(248, 488);
+            this.dgvListaMarcas.TabIndex = 9;
             // 
             // pictureBox1
             // 
@@ -136,14 +136,14 @@
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             // 
-            // cgvcCodigoMarca
+            // dgvcIDMarca
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            this.cgvcCodigoMarca.DefaultCellStyle = dataGridViewCellStyle3;
-            this.cgvcCodigoMarca.HeaderText = "ID";
-            this.cgvcCodigoMarca.Name = "cgvcCodigoMarca";
-            this.cgvcCodigoMarca.ReadOnly = true;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvcIDMarca.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvcIDMarca.HeaderText = "ID";
+            this.dgvcIDMarca.Name = "dgvcIDMarca";
+            this.dgvcIDMarca.ReadOnly = true;
             // 
             // dgvcNombreMarca
             // 
@@ -157,7 +157,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(534, 512);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.dgvListaArticulos);
+            this.Controls.Add(this.dgvListaMarcas);
             this.Controls.Add(this.pictureBox1);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(550, 551);
@@ -168,7 +168,7 @@
             this.Text = "Marcas";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvListaArticulos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListaMarcas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -183,9 +183,9 @@
         private System.Windows.Forms.TextBox txtDescripcionMarca;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DataGridView dgvListaArticulos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cgvcCodigoMarca;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvcNombreMarca;
+        private System.Windows.Forms.DataGridView dgvListaMarcas;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvcIDMarca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvcNombreMarca;
     }
 }

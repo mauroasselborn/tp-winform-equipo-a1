@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnEditarCategoria = new System.Windows.Forms.Button();
             this.btnEliminarCategoria = new System.Windows.Forms.Button();
@@ -36,12 +36,12 @@
             this.txtDescripcionCategoria = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.dgvListaArticulos = new System.Windows.Forms.DataGridView();
-            this.cgvcCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvcNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvListaCategorias = new System.Windows.Forms.DataGridView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.dgvcIDCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvcNombreCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvListaArticulos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListaCategorias)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -113,32 +113,17 @@
             this.label7.Text = "Categoría";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // dgvListaArticulos
+            // dgvListaCategorias
             // 
-            this.dgvListaArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListaArticulos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.cgvcCodigo,
-            this.dgvcNombre});
-            this.dgvListaArticulos.Location = new System.Drawing.Point(275, 12);
-            this.dgvListaArticulos.Name = "dgvListaArticulos";
-            this.dgvListaArticulos.ReadOnly = true;
-            this.dgvListaArticulos.Size = new System.Drawing.Size(248, 488);
-            this.dgvListaArticulos.TabIndex = 6;
-            // 
-            // cgvcCodigo
-            // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.cgvcCodigo.DefaultCellStyle = dataGridViewCellStyle1;
-            this.cgvcCodigo.HeaderText = "ID";
-            this.cgvcCodigo.Name = "cgvcCodigo";
-            this.cgvcCodigo.ReadOnly = true;
-            // 
-            // dgvcNombre
-            // 
-            this.dgvcNombre.HeaderText = "Nombre";
-            this.dgvcNombre.Name = "dgvcNombre";
-            this.dgvcNombre.ReadOnly = true;
+            this.dgvListaCategorias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListaCategorias.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvcIDCategoria,
+            this.dgvcNombreCategoria});
+            this.dgvListaCategorias.Location = new System.Drawing.Point(275, 12);
+            this.dgvListaCategorias.Name = "dgvListaCategorias";
+            this.dgvListaCategorias.ReadOnly = true;
+            this.dgvListaCategorias.Size = new System.Drawing.Size(248, 488);
+            this.dgvListaCategorias.TabIndex = 6;
             // 
             // pictureBox1
             // 
@@ -151,13 +136,28 @@
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
+            // dgvcIDCategoria
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            this.dgvcIDCategoria.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvcIDCategoria.HeaderText = "ID";
+            this.dgvcIDCategoria.Name = "dgvcIDCategoria";
+            this.dgvcIDCategoria.ReadOnly = true;
+            // 
+            // dgvcNombreCategoria
+            // 
+            this.dgvcNombreCategoria.HeaderText = "Nombre";
+            this.dgvcNombreCategoria.Name = "dgvcNombreCategoria";
+            this.dgvcNombreCategoria.ReadOnly = true;
+            // 
             // frmMenuCategorias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(534, 512);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.dgvListaArticulos);
+            this.Controls.Add(this.dgvListaCategorias);
             this.Controls.Add(this.pictureBox1);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(550, 551);
@@ -168,7 +168,7 @@
             this.Text = "Categorías";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvListaArticulos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListaCategorias)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -183,9 +183,9 @@
         private System.Windows.Forms.TextBox txtDescripcionCategoria;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DataGridView dgvListaArticulos;
+        private System.Windows.Forms.DataGridView dgvListaCategorias;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cgvcCodigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvcNombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvcIDCategoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvcNombreCategoria;
     }
 }
