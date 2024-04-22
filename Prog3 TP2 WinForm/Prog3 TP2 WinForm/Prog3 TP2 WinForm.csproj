@@ -112,6 +112,10 @@
       <Project>{78f07f51-0f04-43a8-9231-9e52c7865844}</Project>
       <Name>Dominio</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Negocio\Negocio.csproj">
+      <Project>{6f29e0cb-2dba-4db9-a44a-623a3755eb77}</Project>
+      <Name>Negocio</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\imgMenuPrincipal.jpg" />
