@@ -29,7 +29,6 @@ namespace Prog3_TP2_WinForm
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvListaArticulos = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnEditarArticulo = new System.Windows.Forms.Button();
@@ -47,12 +46,6 @@ namespace Prog3_TP2_WinForm
             this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.dgvcIDArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvcCodigoArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvcNombreArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvcDescripcionArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvcMarcaArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvcCategoriaArticulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaArticulos)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -61,13 +54,6 @@ namespace Prog3_TP2_WinForm
             // dgvListaArticulos
             // 
             this.dgvListaArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListaArticulos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dgvcIDArticulo,
-            this.dgvcCodigoArticulo,
-            this.dgvcNombreArticulo,
-            this.dgvcDescripcionArticulo,
-            this.dgvcMarcaArticulo,
-            this.dgvcCategoriaArticulo});
             this.dgvListaArticulos.Location = new System.Drawing.Point(275, 12);
             this.dgvListaArticulos.Name = "dgvListaArticulos";
             this.dgvListaArticulos.ReadOnly = true;
@@ -227,45 +213,6 @@ namespace Prog3_TP2_WinForm
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
-            // dgvcIDArticulo
-            // 
-            this.dgvcIDArticulo.HeaderText = "ID";
-            this.dgvcIDArticulo.Name = "dgvcIDArticulo";
-            this.dgvcIDArticulo.ReadOnly = true;
-            // 
-            // dgvcCodigoArticulo
-            // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvcCodigoArticulo.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvcCodigoArticulo.HeaderText = "Código";
-            this.dgvcCodigoArticulo.Name = "dgvcCodigoArticulo";
-            this.dgvcCodigoArticulo.ReadOnly = true;
-            // 
-            // dgvcNombreArticulo
-            // 
-            this.dgvcNombreArticulo.HeaderText = "Nombre";
-            this.dgvcNombreArticulo.Name = "dgvcNombreArticulo";
-            this.dgvcNombreArticulo.ReadOnly = true;
-            // 
-            // dgvcDescripcionArticulo
-            // 
-            this.dgvcDescripcionArticulo.HeaderText = "Descripción";
-            this.dgvcDescripcionArticulo.Name = "dgvcDescripcionArticulo";
-            this.dgvcDescripcionArticulo.ReadOnly = true;
-            // 
-            // dgvcMarcaArticulo
-            // 
-            this.dgvcMarcaArticulo.HeaderText = "Marca";
-            this.dgvcMarcaArticulo.Name = "dgvcMarcaArticulo";
-            this.dgvcMarcaArticulo.ReadOnly = true;
-            // 
-            // dgvcCategoriaArticulo
-            // 
-            this.dgvcCategoriaArticulo.HeaderText = "Categoría";
-            this.dgvcCategoriaArticulo.Name = "dgvcCategoriaArticulo";
-            this.dgvcCategoriaArticulo.ReadOnly = true;
-            // 
             // frmMenuArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -281,6 +228,7 @@ namespace Prog3_TP2_WinForm
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Artículos";
+            this.Load += new System.EventHandler(this.frmMenuArticulos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaArticulos)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -307,11 +255,5 @@ namespace Prog3_TP2_WinForm
         private System.Windows.Forms.Button btnEditarArticulo;
         private System.Windows.Forms.Button btnEliminarArticulo;
         private System.Windows.Forms.Button btnAgregarArticulo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvcIDArticulo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvcCodigoArticulo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvcNombreArticulo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvcDescripcionArticulo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvcMarcaArticulo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvcCategoriaArticulo;
     }
 }
