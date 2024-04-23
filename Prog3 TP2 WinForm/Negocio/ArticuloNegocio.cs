@@ -15,7 +15,7 @@ namespace Negocio
             List<Articulo> lstArticulo = new List<Articulo>();
 
 
-            accesoDatos.SetearQuery("select A.Codigo, A.Nombre, A.Descripcion,C.Descripcion as 'Categoria',M.Descripcion as 'Marca',I.ImagenUrl, A.Precio from ARTICULOS A join CATEGORIAS C on C.Id = A.IdCategoria join MARCAS M on M.Id = A.IdMarca join IMAGENES I on I.IdArticulo = A.Id");
+            accesoDatos.SetearQuery("select A.Codigo, A.Nombre, A.Descripcion,C.Id 'IdCategoria',C.Descripcion 'Categoria',M.Id 'IdMarca',M.Descripcion 'Marca',I.ImagenUrl, A.Precio from ARTICULOS A join CATEGORIAS C on C.Id = A.IdCategoria join MARCAS M on M.Id = A.IdMarca join IMAGENES I on I.IdArticulo = A.Id");
 
             try
             {
@@ -29,11 +29,17 @@ namespace Negocio
                     articulo.Descripcion = accesoDatos.Lector["Descripcion"].ToString();
 
                     articulo.Marca = new Marca();
+                    articulo.Marca.Id = Convert.ToInt32(accesoDatos.Lector["IdMarca"]);
                     articulo.Marca.Descripcion = accesoDatos.Lector["Marca"].ToString();
 
                     articulo.Categoria = new Categoria();
+                    articulo.Categoria.Id = Convert.ToInt32(accesoDatos.Lector["IdCategoria"]);
                     articulo.Categoria.Descripcion = accesoDatos.Lector["Categoria"].ToString();
-                    articulo.Precio =(decimal)accesoDatos.Lector["Precio"];
+
+                    articulo.Imagenes = new Imagen();
+                    articulo.Imagenes.ImagenUrl = accesoDatos.Lector["ImagenUrl"].ToString();
+
+                    articulo.Precio = (decimal)accesoDatos.Lector["Precio"];
 
                     lstArticulo.Add(articulo);
                 }

@@ -45,10 +45,10 @@ namespace Prog3_TP2_WinForm
             this.txtCodigoArticulo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbxArticulo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaArticulos)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvListaArticulos
@@ -59,6 +59,7 @@ namespace Prog3_TP2_WinForm
             this.dgvListaArticulos.ReadOnly = true;
             this.dgvListaArticulos.Size = new System.Drawing.Size(646, 622);
             this.dgvListaArticulos.TabIndex = 0;
+            this.dgvListaArticulos.SelectionChanged += new System.EventHandler(this.dgvListaArticulos_SelectionChanged);
             // 
             // panel1
             // 
@@ -202,16 +203,17 @@ namespace Prog3_TP2_WinForm
             this.label7.Text = "Datos del Artículo";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pictureBox1
+            // pbxArticulo
             // 
-            this.pictureBox1.Image = global::Prog3_TP2_WinForm.Properties.Resources.imgMenuPrincipal;
-            this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(254, 212);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            this.pbxArticulo.ErrorImage = global::Prog3_TP2_WinForm.Properties.Resources.imgMenuPrincipal;
+            this.pbxArticulo.Image = global::Prog3_TP2_WinForm.Properties.Resources.imgMenuPrincipal;
+            this.pbxArticulo.InitialImage = null;
+            this.pbxArticulo.Location = new System.Drawing.Point(12, 12);
+            this.pbxArticulo.Name = "pbxArticulo";
+            this.pbxArticulo.Size = new System.Drawing.Size(254, 253);
+            this.pbxArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxArticulo.TabIndex = 2;
+            this.pbxArticulo.TabStop = false;
             // 
             // frmMenuArticulos
             // 
@@ -220,7 +222,7 @@ namespace Prog3_TP2_WinForm
             this.ClientSize = new System.Drawing.Size(931, 644);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dgvListaArticulos);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pbxArticulo);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(947, 683);
             this.MinimumSize = new System.Drawing.Size(947, 683);
@@ -232,13 +234,13 @@ namespace Prog3_TP2_WinForm
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaArticulos)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbxArticulo;
         private System.Windows.Forms.DataGridView dgvListaArticulos;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ComboBox cmbCategoriaArticulo;
