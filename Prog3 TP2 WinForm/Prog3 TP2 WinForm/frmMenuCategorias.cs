@@ -30,6 +30,7 @@ namespace Prog3_TP2_WinForm
                 categoria.Descripcion = txtDescripcionCategoria.Text;
                 categoriaNegocio.Agregar(categoria);
                 dgvListaCategorias.DataSource = categoriaNegocio.listar();
+                MessageBox.Show("Agregado Correctamente");
             }
             catch (Exception ex)
             {
@@ -52,12 +53,51 @@ namespace Prog3_TP2_WinForm
             
             try
             {
-                categoriaNegocio.Eliminar(categoria.Id);
+                categoriaNegocio.EliminarLogico(categoria.Id);
                 dgvListaCategorias.DataSource = categoriaNegocio.listar();
+                MessageBox.Show("Baja Realizada");
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString()); ;
+            }
+        }
+
+        private void btnEditarCategoria_Click(object sender, EventArgs e)
+        {
+            
+            CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
+            Categoria categoria = (Categoria)dgvListaCategorias.CurrentRow.DataBoundItem;
+
+            if (btnEditarCategoria.Text == "Editar")
+            {
+                txtDescripcionCategoria.Text = categoria.Descripcion;
+                btnEditarCategoria.Text = "Guardar";
+            }
+            else
+            {
+                try
+                {
+                    if (txtDescripcionCategoria.Text.Length > 0)
+                    {
+                        categoriaNegocio.Editar(categoria.Id, txtDescripcionCategoria.Text);
+                        dgvListaCategorias.DataSource = categoriaNegocio.listar();
+                        MessageBox.Show("Editado Correctamente");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Debe Igresar una Descripcion");
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString()); ;
+                }
+                finally
+                {
+                    btnEditarCategoria.Text = "Editar";
+                }
             }
         }
     }
