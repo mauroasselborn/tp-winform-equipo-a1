@@ -117,8 +117,10 @@
             // 
             this.dgvListaCategorias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListaCategorias.Location = new System.Drawing.Point(275, 12);
+            this.dgvListaCategorias.MultiSelect = false;
             this.dgvListaCategorias.Name = "dgvListaCategorias";
             this.dgvListaCategorias.ReadOnly = true;
+            this.dgvListaCategorias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListaCategorias.Size = new System.Drawing.Size(248, 488);
             this.dgvListaCategorias.TabIndex = 6;
             // 
