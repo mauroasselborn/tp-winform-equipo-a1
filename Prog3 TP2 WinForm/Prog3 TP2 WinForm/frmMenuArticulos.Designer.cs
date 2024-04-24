@@ -55,8 +55,10 @@ namespace Prog3_TP2_WinForm
             // 
             this.dgvListaArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListaArticulos.Location = new System.Drawing.Point(275, 12);
+            this.dgvListaArticulos.MultiSelect = false;
             this.dgvListaArticulos.Name = "dgvListaArticulos";
             this.dgvListaArticulos.ReadOnly = true;
+            this.dgvListaArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListaArticulos.Size = new System.Drawing.Size(646, 622);
             this.dgvListaArticulos.TabIndex = 0;
             this.dgvListaArticulos.SelectionChanged += new System.EventHandler(this.dgvListaArticulos_SelectionChanged);
@@ -92,6 +94,7 @@ namespace Prog3_TP2_WinForm
             this.btnEditarArticulo.TabIndex = 7;
             this.btnEditarArticulo.Text = "Editar";
             this.btnEditarArticulo.UseVisualStyleBackColor = true;
+            this.btnEditarArticulo.Click += new System.EventHandler(this.btnEditarArticulo_Click);
             // 
             // btnEliminarArticulo
             // 
@@ -110,6 +113,7 @@ namespace Prog3_TP2_WinForm
             this.btnAgregarArticulo.TabIndex = 5;
             this.btnAgregarArticulo.Text = "Agregar";
             this.btnAgregarArticulo.UseVisualStyleBackColor = true;
+            this.btnAgregarArticulo.Click += new System.EventHandler(this.btnAgregarArticulo_Click);
             // 
             // cmbCategoriaArticulo
             // 

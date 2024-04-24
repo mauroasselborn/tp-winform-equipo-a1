@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ABMArticulo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABMArticulo.Designer.cs">
+      <DependentUpon>ABMArticulo.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMenuCategorias.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +78,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ABMArticulo.resx">
+      <DependentUpon>ABMArticulo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMenuCategorias.resx">
       <DependentUpon>frmMenuCategorias.cs</DependentUpon>
     </EmbeddedResource>

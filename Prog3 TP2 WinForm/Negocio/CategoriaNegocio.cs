@@ -16,7 +16,7 @@ namespace Negocio
 
             try
             {
-                accesoDatos.setearConsulta("SELECT Id, Descripcion, Activo FROM CATEGORIAS WHERE Activo = 1");
+                accesoDatos.setearConsulta("SELECT Id, Descripcion FROM CATEGORIAS");
                 accesoDatos.ejecutarLectura();
 
                 while (accesoDatos.Lector.Read())
@@ -25,7 +25,7 @@ namespace Negocio
 
                     categoria.Id = (int)accesoDatos.Lector["Id"];
                     categoria.Descripcion = (string)accesoDatos.Lector["Descripcion"];
-                    categoria.Activo = (bool)accesoDatos.Lector["Activo"];
+                    //categoria.Activo = (bool)accesoDatos.Lector["Activo"];
 
                     lista.Add(categoria);
                 }

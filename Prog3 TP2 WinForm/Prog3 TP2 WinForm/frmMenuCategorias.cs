@@ -43,7 +43,7 @@ namespace Prog3_TP2_WinForm
         {
             CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
             dgvListaCategorias.DataSource = categoriaNegocio.listar();
-            dgvListaCategorias.Columns["Activo"].Visible = false;
+            
         }
 
         private void btnEliminarCategoria_Click(object sender, EventArgs e)
