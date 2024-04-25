@@ -25,7 +25,7 @@ namespace Negocio
 
                     categoria.Id = (int)accesoDatos.Lector["Id"];
                     categoria.Descripcion = (string)accesoDatos.Lector["Descripcion"];
-                    //categoria.Activo = (bool)accesoDatos.Lector["Activo"];
+                    
 
                     lista.Add(categoria);
                 }
