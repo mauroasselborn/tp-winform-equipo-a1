@@ -43,7 +43,7 @@ namespace Prog3_TP2_WinForm
 
             lstArticulo = articuloNegocio.Listar();
             cmbCategoriaArticulo.DataSource = categoriaNegocio.listar();
-            cmbMarcaArticulo.DataSource = marcaNegocio.listar();
+            cmbMarcaArticulo.DataSource = marcaNegocio.listar(true);
 
             dgvListaArticulos.DataSource = lstArticulo;
 

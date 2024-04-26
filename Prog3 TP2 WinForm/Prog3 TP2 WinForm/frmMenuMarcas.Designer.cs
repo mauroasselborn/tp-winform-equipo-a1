@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnEditarMarca = new System.Windows.Forms.Button();
             this.btnEliminarMarca = new System.Windows.Forms.Button();
@@ -37,8 +36,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.dgvListaMarcas = new System.Windows.Forms.DataGridView();
-            this.dgvcIDMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvcNombreMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaMarcas)).BeginInit();
@@ -68,6 +65,7 @@
             this.btnEditarMarca.TabIndex = 7;
             this.btnEditarMarca.Text = "Editar";
             this.btnEditarMarca.UseVisualStyleBackColor = true;
+            this.btnEditarMarca.Click += new System.EventHandler(this.btnEditarMarca_Click);
             // 
             // btnEliminarMarca
             // 
@@ -77,6 +75,7 @@
             this.btnEliminarMarca.TabIndex = 6;
             this.btnEliminarMarca.Text = "Eliminar";
             this.btnEliminarMarca.UseVisualStyleBackColor = true;
+            this.btnEliminarMarca.Click += new System.EventHandler(this.btnEliminarMarca_Click);
             // 
             // btnAgregarMarca
             // 
@@ -86,6 +85,7 @@
             this.btnAgregarMarca.TabIndex = 5;
             this.btnAgregarMarca.Text = "Agregar";
             this.btnAgregarMarca.UseVisualStyleBackColor = true;
+            this.btnAgregarMarca.Click += new System.EventHandler(this.btnAgregarMarca_Click);
             // 
             // txtDescripcionMarca
             // 
@@ -116,29 +116,11 @@
             // dgvListaMarcas
             // 
             this.dgvListaMarcas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListaMarcas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dgvcIDMarca,
-            this.dgvcNombreMarca});
             this.dgvListaMarcas.Location = new System.Drawing.Point(275, 12);
             this.dgvListaMarcas.Name = "dgvListaMarcas";
             this.dgvListaMarcas.ReadOnly = true;
-            this.dgvListaMarcas.Size = new System.Drawing.Size(248, 488);
+            this.dgvListaMarcas.Size = new System.Drawing.Size(347, 488);
             this.dgvListaMarcas.TabIndex = 9;
-            // 
-            // dgvcIDMarca
-            // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvcIDMarca.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvcIDMarca.HeaderText = "ID";
-            this.dgvcIDMarca.Name = "dgvcIDMarca";
-            this.dgvcIDMarca.ReadOnly = true;
-            // 
-            // dgvcNombreMarca
-            // 
-            this.dgvcNombreMarca.HeaderText = "Nombre";
-            this.dgvcNombreMarca.Name = "dgvcNombreMarca";
-            this.dgvcNombreMarca.ReadOnly = true;
             // 
             // pictureBox1
             // 
@@ -155,17 +137,18 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(534, 512);
+            this.ClientSize = new System.Drawing.Size(634, 511);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dgvListaMarcas);
             this.Controls.Add(this.pictureBox1);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(550, 551);
-            this.MinimumSize = new System.Drawing.Size(550, 551);
+            this.MaximumSize = new System.Drawing.Size(650, 550);
+            this.MinimumSize = new System.Drawing.Size(550, 550);
             this.Name = "frmMenuMarcas";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Marcas";
+            this.Load += new System.EventHandler(this.frmMenuMarcas_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaMarcas)).EndInit();
@@ -185,7 +168,5 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridView dgvListaMarcas;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvcIDMarca;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvcNombreMarca;
     }
 }
