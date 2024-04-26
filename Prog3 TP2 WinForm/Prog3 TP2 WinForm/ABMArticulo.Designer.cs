@@ -77,7 +77,7 @@
             this.TxtUrlImg.Name = "TxtUrlImg";
             this.TxtUrlImg.Size = new System.Drawing.Size(171, 20);
             this.TxtUrlImg.TabIndex = 3;
-            this.TxtUrlImg.ModifiedChanged += new System.EventHandler(this.TxtUrlImg_ModifiedChanged);
+            this.TxtUrlImg.TextChanged += new System.EventHandler(this.TxtUrlImg_TextChanged);
             // 
             // lblCodigo
             // 

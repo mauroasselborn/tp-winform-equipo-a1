@@ -65,20 +65,30 @@ namespace Prog3_TP2_WinForm
                 if (this.articulo == null)
                 {
                     Articulo articulo = new Articulo();
+
                     articulo.Codigo = TxtCodigo.Text;
                     articulo.Nombre = TxtNombre.Text;
                     articulo.Descripcion = TxtDescripcion.Text;
-                    articulo.Precio = Convert.ToDecimal(TxtPrecio.Text);
+                    if (TxtPrecio.Text != "")
+                        articulo.Precio = Convert.ToDecimal(TxtPrecio.Text);
 
-                    articulo.Imagenes = new Imagen();
-                    articulo.Imagenes.ImagenUrl = TxtUrlImg.Text;
+                    if (TxtUrlImg.Text != "")
+                    {
+                        articulo.Imagenes = new Imagen();
+                        articulo.Imagenes.ImagenUrl = TxtUrlImg.Text;
+                    }
+
                     articulo.Categoria = (Categoria)cmbCategoria.SelectedItem;
                     articulo.Marca = (Marca)cmbMarca.SelectedItem;
 
-                    articuloNegocio.Agregar(articulo);
+                    if (ValidarTodo())
+                    {
+                        articuloNegocio.Agregar(articulo);
 
-                    MessageBox.Show("Realizado correctamente!");
-                    Close();
+                        MessageBox.Show("Realizado correctamente!");
+                        Close();
+                    }
+
 
                 }
                 else
@@ -86,18 +96,25 @@ namespace Prog3_TP2_WinForm
                     articulo.Codigo = TxtCodigo.Text;
                     articulo.Nombre = TxtNombre.Text;
                     articulo.Descripcion = TxtDescripcion.Text;
-                    articulo.Precio = Convert.ToDecimal(TxtPrecio.Text);
+
+                    if (TxtPrecio.Text != "")
+                        articulo.Precio = Convert.ToDecimal(TxtPrecio.Text);
 
                     articulo.Imagenes = new Imagen();
                     articulo.Imagenes.ImagenUrl = TxtUrlImg.Text;
+                    CargarImagen(TxtUrlImg.Text);
+
                     articulo.Categoria = (Categoria)cmbCategoria.SelectedItem;
                     articulo.Marca = (Marca)cmbMarca.SelectedItem;
+                    if (ValidarTodo())
+                    {
+                        articuloNegocio.Modificar(articulo);
 
-                    articuloNegocio.Modificar(articulo);
-
-                    MessageBox.Show("Realizado correctamente!");
-                    Close();
+                        MessageBox.Show("Realizado correctamente!");
+                        Close();
+                    }
                 }
+
             }
             catch (Exception)
             {
@@ -106,18 +123,16 @@ namespace Prog3_TP2_WinForm
             }
         }
 
-        private void TxtUrlImg_ModifiedChanged(object sender, EventArgs e)
+        private bool ValidarTodo()
         {
-            try
+            if (TxtCodigo.Text == "" && TxtNombre.Text == "" &&
+                TxtDescripcion.Text == "" && TxtUrlImg.Text == "" &&
+                TxtPrecio.Text == "")
             {
-                PcbArticulo.Load(TxtUrlImg.Text);
+                MessageBox.Show("Por favor completar todos los campos");
+                return false;
             }
-            catch (Exception)
-            {
-
-                MessageBox.Show("Por favor utilice un link valido");
-            }
-
+            return true;
         }
 
         private void TxtPrecio_KeyPress(object sender, KeyPressEventArgs e)
@@ -125,6 +140,31 @@ namespace Prog3_TP2_WinForm
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
+            }
+        }
+        private void CargarImagen(string URL)
+        {
+            try
+            {
+                PcbArticulo.Load(URL);
+
+            }
+            catch (Exception)
+            {
+                PcbArticulo.Load("https://cdn.vectorstock.com/i/1000v/31/20/image-error-icon-editable-outline-vector-30393120.jpg");
+            }
+        }
+
+        private void TxtUrlImg_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                CargarImagen(TxtUrlImg.Text);
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Por favor utilice un link valido");
             }
         }
     }
