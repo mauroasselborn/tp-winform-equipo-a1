@@ -1,13 +1,6 @@
 ﻿using Dominio;
 using Negocio;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Prog3_TP2_WinForm
@@ -28,7 +21,7 @@ namespace Prog3_TP2_WinForm
 
         private void ABMArticulo_Load(object sender, EventArgs e)
         {
-            
+
             CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
             MarcaNegocio marcaNegocio = new MarcaNegocio();
 
@@ -37,7 +30,7 @@ namespace Prog3_TP2_WinForm
 
             if (articulo.Codigo == null)
             {
-                
+
                 this.Text = "Agregar";
                 Articulo articulo = new Articulo();
             }
@@ -45,10 +38,20 @@ namespace Prog3_TP2_WinForm
             {
                 this.Text = "Modificar";
                 TxtCodigo.Text = articulo.Codigo;
-                TxtNombre.Text = articulo.Nombre ;
+                TxtNombre.Text = articulo.Nombre;
                 TxtDescripcion.Text = articulo.Descripcion;
-                TxtPrecio.Text = Math.Round( articulo.Precio).ToString();
+                TxtPrecio.Text = articulo.Precio.ToString();
                 TxtUrlImg.Text = articulo.Imagenes.ImagenUrl;
+                try
+                {
+                    PcbArticulo.Load(articulo.Imagenes.ImagenUrl);
+
+                }
+                catch (Exception)
+                {
+                    PcbArticulo.Load("https://cdn.vectorstock.com/i/1000v/31/20/image-error-icon-editable-outline-vector-30393120.jpg");
+                }
+
                 cmbCategoria.SelectedItem = articulo.Categoria;
                 cmbMarca.SelectedItem = articulo.Marca;
             }
@@ -59,7 +62,7 @@ namespace Prog3_TP2_WinForm
             ArticuloNegocio articuloNegocio = new ArticuloNegocio();
             try
             {
-                if(this.articulo == null)
+                if (this.articulo == null)
                 {
                     Articulo articulo = new Articulo();
                     articulo.Codigo = TxtCodigo.Text;
@@ -69,7 +72,7 @@ namespace Prog3_TP2_WinForm
 
                     articulo.Imagenes = new Imagen();
                     articulo.Imagenes.ImagenUrl = TxtUrlImg.Text;
-                    articulo.Categoria = (Categoria) cmbCategoria.SelectedItem;
+                    articulo.Categoria = (Categoria)cmbCategoria.SelectedItem;
                     articulo.Marca = (Marca)cmbMarca.SelectedItem;
 
                     articuloNegocio.Agregar(articulo);

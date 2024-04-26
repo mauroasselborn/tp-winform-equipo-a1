@@ -31,6 +31,8 @@ namespace Prog3_TP2_WinForm
         {
             this.dgvListaArticulos = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.TBPrecio = new System.Windows.Forms.TrackBar();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnEditarArticulo = new System.Windows.Forms.Button();
             this.btnEliminarArticulo = new System.Windows.Forms.Button();
             this.btnAgregarArticulo = new System.Windows.Forms.Button();
@@ -48,6 +50,7 @@ namespace Prog3_TP2_WinForm
             this.pbxArticulo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaArticulos)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TBPrecio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,6 +70,8 @@ namespace Prog3_TP2_WinForm
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkGray;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.TBPrecio);
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnEditarArticulo);
             this.panel1.Controls.Add(this.btnEliminarArticulo);
             this.panel1.Controls.Add(this.btnAgregarArticulo);
@@ -85,6 +90,24 @@ namespace Prog3_TP2_WinForm
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(254, 363);
             this.panel1.TabIndex = 5;
+            // 
+            // TBPrecio
+            // 
+            this.TBPrecio.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.TBPrecio.Location = new System.Drawing.Point(6, 250);
+            this.TBPrecio.Name = "TBPrecio";
+            this.TBPrecio.Size = new System.Drawing.Size(232, 45);
+            this.TBPrecio.TabIndex = 11;
+            this.TBPrecio.ValueChanged += new System.EventHandler(this.TBPrecio_ValueChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 234);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(37, 13);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Precio";
             // 
             // btnEditarArticulo
             // 
@@ -155,6 +178,7 @@ namespace Prog3_TP2_WinForm
             this.txtDescripcionArticulo.Name = "txtDescripcionArticulo";
             this.txtDescripcionArticulo.Size = new System.Drawing.Size(171, 20);
             this.txtDescripcionArticulo.TabIndex = 2;
+            this.txtDescripcionArticulo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtDescripcionArticulo_KeyUp);
             // 
             // label5
             // 
@@ -171,6 +195,7 @@ namespace Prog3_TP2_WinForm
             this.txtNombreArticulo.Name = "txtNombreArticulo";
             this.txtNombreArticulo.Size = new System.Drawing.Size(171, 20);
             this.txtNombreArticulo.TabIndex = 1;
+            this.txtNombreArticulo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtNombreArticulo_KeyUp);
             // 
             // label3
             // 
@@ -187,6 +212,7 @@ namespace Prog3_TP2_WinForm
             this.txtCodigoArticulo.Name = "txtCodigoArticulo";
             this.txtCodigoArticulo.Size = new System.Drawing.Size(171, 20);
             this.txtCodigoArticulo.TabIndex = 0;
+            this.txtCodigoArticulo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtCodigoArticulo_KeyUp);
             // 
             // label2
             // 
@@ -204,7 +230,7 @@ namespace Prog3_TP2_WinForm
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(254, 23);
             this.label7.TabIndex = 0;
-            this.label7.Text = "Datos del Artículo";
+            this.label7.Text = "Filtros";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pbxArticulo
@@ -238,6 +264,7 @@ namespace Prog3_TP2_WinForm
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaArticulos)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TBPrecio)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).EndInit();
             this.ResumeLayout(false);
 
@@ -261,5 +288,7 @@ namespace Prog3_TP2_WinForm
         private System.Windows.Forms.Button btnEditarArticulo;
         private System.Windows.Forms.Button btnEliminarArticulo;
         private System.Windows.Forms.Button btnAgregarArticulo;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TrackBar TBPrecio;
     }
 }

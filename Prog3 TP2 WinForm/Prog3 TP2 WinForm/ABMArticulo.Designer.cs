@@ -126,9 +126,10 @@
             // 
             // PcbArticulo
             // 
-            this.PcbArticulo.Location = new System.Drawing.Point(245, 74);
+            this.PcbArticulo.Location = new System.Drawing.Point(220, 74);
             this.PcbArticulo.Name = "PcbArticulo";
-            this.PcbArticulo.Size = new System.Drawing.Size(230, 159);
+            this.PcbArticulo.Size = new System.Drawing.Size(254, 253);
+            this.PcbArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PcbArticulo.TabIndex = 10;
             this.PcbArticulo.TabStop = false;
             // 
@@ -163,7 +164,7 @@
             // btnCancelar
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(245, 415);
+            this.btnCancelar.Location = new System.Drawing.Point(269, 415);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(129, 27);
             this.btnCancelar.TabIndex = 14;
@@ -201,7 +202,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancelar;
-            this.ClientSize = new System.Drawing.Size(487, 454);
+            this.ClientSize = new System.Drawing.Size(489, 454);
             this.Controls.Add(this.lblPrecio);
             this.Controls.Add(this.TxtPrecio);
             this.Controls.Add(this.lblMarca);

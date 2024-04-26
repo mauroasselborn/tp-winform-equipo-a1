@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Dominio
+﻿namespace Dominio
 {
     public class Articulo
     {
@@ -11,7 +8,7 @@ namespace Dominio
         public string Descripcion { get; set; }
         public Marca Marca { get; set; }
         public Categoria Categoria { get; set; }
-        public Decimal Precio { get; set; }
+        public decimal Precio { get; set; }
         public Imagen Imagenes { get; set; }
 
     }

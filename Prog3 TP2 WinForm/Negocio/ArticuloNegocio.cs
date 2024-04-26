@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Negocio
 {
@@ -64,8 +62,8 @@ namespace Negocio
             AccesoDatos accesoDatos = new AccesoDatos();
 
             try
-            {  
-                accesoDatos.setearConsulta("INSERT INTO Articulos (Codigo,Nombre,Descripcion,Idmarca,IdCategoria,Precio) VALUES ('" + articulo.Codigo + "','" + articulo.Nombre + "','" + articulo.Descripcion + "'," + articulo.Marca.Id + "," +articulo.Categoria.Id + "," + Math.Round(articulo.Precio, 2) +")");
+            {
+                accesoDatos.setearConsulta("INSERT INTO Articulos (Codigo,Nombre,Descripcion,Idmarca,IdCategoria,Precio) VALUES ('" + articulo.Codigo + "','" + articulo.Nombre + "','" + articulo.Precio + ")");
                 accesoDatos.ejecutarAccion();
 
                 AgregarImagen(articulo);
@@ -89,7 +87,7 @@ namespace Negocio
             {
                 List<Articulo> lstArticulo = Listar();
                 int IdArticulo = lstArticulo.Max(x => x.Id) + 1;
-                accesoDatos.setearConsulta("INSERT INTO Imagenes VALUES ('"+ IdArticulo +"','" + articulo.Imagenes.ImagenUrl + "')");
+                accesoDatos.setearConsulta("INSERT INTO Imagenes VALUES ('" + IdArticulo + "','" + articulo.Imagenes.ImagenUrl + "')");
                 accesoDatos.ejecutarAccion();
 
             }
@@ -110,10 +108,10 @@ namespace Negocio
 
             try
             {
-                accesoDatos.setearConsulta("UPDATE Articulos SET Codigo = '" + articulo.Codigo + "',Nombre = '"+ articulo.Nombre + "',Descripcion = '" + articulo.Descripcion +"' ,Idmarca = " + articulo.Marca.Id + ",IdCategoria ="+ articulo.Categoria.Id + " ,Precio ="+ Math.Round(articulo.Precio, 2)  + "where Id = " + articulo.Id + "");
+                accesoDatos.setearConsulta("UPDATE Articulos SET Codigo = '" + articulo.Codigo + "',Nombre = '" + articulo.Nombre + "',Descripcion = '" + articulo.Descripcion + "' ,Idmarca = " + articulo.Marca.Id + ",IdCategoria =" + articulo.Categoria.Id + " ,Precio =" + articulo.Precio + "where Id = " + articulo.Id + "");
                 accesoDatos.ejecutarAccion();
 
-               ActualizarImagen(articulo);
+                ActualizarImagen(articulo);
             }
             catch (Exception)
             {
