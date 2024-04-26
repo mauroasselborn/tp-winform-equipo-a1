@@ -14,9 +14,9 @@ namespace Negocio
             try
             {
                 string cadenaAux = "";
-                if (soloActivos)
-                    cadenaAux = " WHERE Activo = 1";
-                accesoDatos.setearConsulta("SELECT Id, Descripcion, Activo FROM marcas"+cadenaAux);
+                //if (soloActivos)
+                //    cadenaAux = " WHERE Activo = 1";
+                accesoDatos.setearConsulta("SELECT Id, Descripcion FROM marcas");
                 accesoDatos.ejecutarLectura();
 
                 while (accesoDatos.Lector.Read())
@@ -25,7 +25,7 @@ namespace Negocio
 
                     marca.Id = (int)accesoDatos.Lector["Id"];
                     marca.Descripcion = (string)accesoDatos.Lector["Descripcion"];
-                    marca.Activo = (bool)accesoDatos.Lector["Activo"];
+
                     lista.Add(marca);
                 }
                 return lista;

@@ -28,7 +28,7 @@ namespace Prog3_TP2_WinForm
             cmbCategoria.DataSource = categoriaNegocio.listar();
             cmbMarca.DataSource = marcaNegocio.listar(true);
 
-            if (articulo.Codigo == null)
+            if (articulo == null)
             {
 
                 this.Text = "Agregar";

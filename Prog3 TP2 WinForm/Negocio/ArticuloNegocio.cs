@@ -63,7 +63,7 @@ namespace Negocio
 
             try
             {
-                accesoDatos.setearConsulta("INSERT INTO Articulos (Codigo,Nombre,Descripcion,Idmarca,IdCategoria,Precio) VALUES ('" + articulo.Codigo + "','" + articulo.Nombre + "','" + articulo.Precio + ")");
+                accesoDatos.setearConsulta("INSERT INTO Articulos (Codigo,Nombre,Descripcion,Idmarca,IdCategoria,Precio) VALUES ('" + articulo.Codigo + "','" + articulo.Nombre + "','" + articulo.Descripcion + "'," + articulo.Marca.Id + "," + articulo.Categoria.Id + "," + Math.Round(articulo.Precio, 2) + ")");
                 accesoDatos.ejecutarAccion();
 
                 AgregarImagen(articulo);
@@ -131,6 +131,47 @@ namespace Negocio
             try
             {
                 accesoDatos.setearConsulta("UPDATE Imagenes Set ImagenUrl = '" + articulo.Imagenes.ImagenUrl + "'where IdArticulo = " + articulo.Id + "");
+                accesoDatos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                accesoDatos.cerrarConexion();
+            }
+        }
+
+        public void EliminarArticulo(Articulo articulo)
+        {
+            AccesoDatos accesoDatos = new AccesoDatos();
+
+            try
+            {
+                accesoDatos.setearConsulta("Delete Articulos where Id = " + articulo.Id + "");
+                accesoDatos.ejecutarAccion();
+                EliminarImagen(articulo.Id);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                accesoDatos.cerrarConexion();
+            }
+
+        }
+        private void EliminarImagen(int id)
+        {
+            AccesoDatos accesoDatos = new AccesoDatos();
+
+            try
+            {
+                accesoDatos.setearConsulta("Delete Imagenes where IdArticulo = " + id + "");
                 accesoDatos.ejecutarAccion();
             }
             catch (Exception ex)
