@@ -35,34 +35,48 @@ namespace Prog3_TP2_WinForm
 
         private void btnEliminarMarca_Click(object sender, EventArgs e)
         {
-            Marca marca = (Marca)dgvListaMarcas.CurrentRow.DataBoundItem;
-            MarcaNegocio marcaNegocio = new MarcaNegocio();
-
-            DialogResult dialogResult = MessageBox.Show("Seguro desea Eliminar?", "Eliminar", MessageBoxButtons.YesNo);
-
-            if (dialogResult == DialogResult.Yes)
+            if (dgvListaMarcas.CurrentRow != null)
             {
-                try
+                Marca marca = (Marca)dgvListaMarcas.CurrentRow.DataBoundItem;
+                MarcaNegocio marcaNegocio = new MarcaNegocio();
+
+                DialogResult dialogResult = MessageBox.Show("Seguro desea Eliminar?", "Eliminar", MessageBoxButtons.YesNo);
+
+                if (dialogResult == DialogResult.Yes)
                 {
-                    marcaNegocio.Eliminar(marca.Id);
-                    dgvListaMarcas.DataSource = marcaNegocio.listar();
-                    limpiarForm();
-                    MessageBox.Show("Baja Realizada");
+                    try
+                    {
+                        marcaNegocio.Eliminar(marca.Id);
+                        dgvListaMarcas.DataSource = marcaNegocio.listar();
+                        limpiarForm();
+                        MessageBox.Show("Baja Realizada");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-            }                
+            }
+            else
+            {
+                MessageBox.Show("Seleccione una marca para eliminar");
+            }
         }
 
         private void btnEditarMarca_Click(object sender, EventArgs e)
         {
-            Marca Seleccionado = (Marca)dgvListaMarcas.CurrentRow.DataBoundItem;
+            if(dgvListaMarcas.CurrentRow!=null)
+            {
+                Marca Seleccionado = (Marca)dgvListaMarcas.CurrentRow.DataBoundItem;
 
-            ABMMarca AbmMarca = new ABMMarca(Seleccionado);
-            AbmMarca.ShowDialog();
-            Cargar();
+                ABMMarca AbmMarca = new ABMMarca(Seleccionado);
+                AbmMarca.ShowDialog();
+                Cargar();
+            }
+            else
+            {
+                MessageBox.Show("Seleccione una marca para editar");
+            }
         }
 
         public bool validarForm()

@@ -84,11 +84,18 @@ namespace Prog3_TP2_WinForm
 
         private void btnEditarArticulo_Click(object sender, EventArgs e)
         {
-            Articulo Seleccionado = (Articulo)dgvListaArticulos.CurrentRow.DataBoundItem;
+            if(dgvListaArticulos.CurrentRow!=null)
+            {
+                Articulo Seleccionado = (Articulo)dgvListaArticulos.CurrentRow.DataBoundItem;
 
-            ABMArticulo AbmArticulo = new ABMArticulo(Seleccionado);
-            AbmArticulo.ShowDialog();
-            Cargar();
+                ABMArticulo AbmArticulo = new ABMArticulo(Seleccionado);
+                AbmArticulo.ShowDialog();
+                Cargar();
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un articulo para editar");
+            }
         }
 
         private void txtCodigoArticulo_KeyUp(object sender, KeyEventArgs e)
@@ -174,26 +181,33 @@ namespace Prog3_TP2_WinForm
 
         private void btnEliminarArticulo_Click(object sender, EventArgs e)
         {
-            Articulo Seleccionado = (Articulo)dgvListaArticulos.CurrentRow.DataBoundItem;
-            ArticuloNegocio articuloNegocio = new ArticuloNegocio();
-            try
+            if (dgvListaArticulos.CurrentRow != null)
             {
-                DialogResult dialogResult = MessageBox.Show("Seguro deseas Eliminar?", "Eliminar", MessageBoxButtons.YesNo);
-                if (dialogResult == DialogResult.Yes)
+                Articulo Seleccionado = (Articulo)dgvListaArticulos.CurrentRow.DataBoundItem;
+                ArticuloNegocio articuloNegocio = new ArticuloNegocio();
+                try
                 {
-                    articuloNegocio.EliminarArticulo(Seleccionado);
-                }
-                else if (dialogResult == DialogResult.No)
-                {
-                    Cargar();
-                }
+                    DialogResult dialogResult = MessageBox.Show("Seguro deseas Eliminar?", "Eliminar", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        articuloNegocio.EliminarArticulo(Seleccionado);
+                    }
+                    else if (dialogResult == DialogResult.No)
+                    {
+                        Cargar();
+                    }
 
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("No se pudo eliminar");
+                }
+                Cargar();
             }
-            catch (Exception)
+            else
             {
-                MessageBox.Show("No se pudo eliminar");
+                MessageBox.Show("Seleccione un articulo para eliminar");
             }
-            Cargar();
         }
 
         private void cmbMarcaArticulo_SelectedIndexChanged(object sender, EventArgs e)

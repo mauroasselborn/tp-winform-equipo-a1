@@ -111,15 +111,18 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(254, 35);
             this.label7.TabIndex = 0;
-            this.label7.Text = "Datos de Marca";
+            this.label7.Text = "Filtro";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dgvListaMarcas
             // 
+            this.dgvListaMarcas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvListaMarcas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListaMarcas.Location = new System.Drawing.Point(275, 12);
+            this.dgvListaMarcas.MultiSelect = false;
             this.dgvListaMarcas.Name = "dgvListaMarcas";
             this.dgvListaMarcas.ReadOnly = true;
+            this.dgvListaMarcas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListaMarcas.Size = new System.Drawing.Size(247, 488);
             this.dgvListaMarcas.TabIndex = 9;
             // 

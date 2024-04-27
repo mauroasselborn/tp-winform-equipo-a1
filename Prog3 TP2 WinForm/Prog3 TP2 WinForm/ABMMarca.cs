@@ -38,7 +38,7 @@ namespace Prog3_TP2_WinForm
         {
             if (validarForm())
             {
-                if (this.marca == null)
+                if (this.marca.Id == 0)
                 {
 
                     Marca marca = new Marca();

@@ -141,7 +141,7 @@ namespace Prog3_TP2_WinForm
 
         private void TxtPrecio_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            if (!(e.KeyChar == ',') && !(e.KeyChar=='.') && !char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
             }
