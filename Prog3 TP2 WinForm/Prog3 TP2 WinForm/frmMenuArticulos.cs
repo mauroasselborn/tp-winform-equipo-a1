@@ -45,6 +45,11 @@ namespace Prog3_TP2_WinForm
             cmbCategoriaArticulo.DataSource = categoriaNegocio.listar();
             cmbMarcaArticulo.DataSource = marcaNegocio.listar();
 
+            cmbMarcaArticulo.DisplayMember = "Descripcion";
+            cmbMarcaArticulo.ValueMember = "ID";
+            cmbCategoriaArticulo.DisplayMember = "Descripcion";
+            cmbCategoriaArticulo.ValueMember = "ID";
+
             dgvListaArticulos.DataSource = lstArticulo;
 
             OcultarColumnas();
@@ -158,5 +163,31 @@ namespace Prog3_TP2_WinForm
             dgvListaArticulos.DataSource = lstFiltrada;
             OcultarColumnas();
         }
+
+        private void btnEliminarArticulo_Click(object sender, EventArgs e)
+        {
+            Articulo Seleccionado = (Articulo)dgvListaArticulos.CurrentRow.DataBoundItem;
+            ArticuloNegocio articuloNegocio = new ArticuloNegocio();
+            try
+            {
+                DialogResult dialogResult = MessageBox.Show("Seguro deseas Eliminar?", "Eliminar", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    articuloNegocio.EliminarArticulo(Seleccionado);
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    Cargar();
+                }
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No se pudo eliminar");
+            }
+            Cargar();
+        }
+
+
     }
 }
