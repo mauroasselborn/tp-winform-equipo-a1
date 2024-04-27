@@ -45,6 +45,11 @@ namespace Prog3_TP2_WinForm
             cmbCategoriaArticulo.DataSource = categoriaNegocio.listar();
             cmbMarcaArticulo.DataSource = marcaNegocio.listar(true);
 
+            cmbMarcaArticulo.DisplayMember = "Descripcion";
+            cmbMarcaArticulo.ValueMember = "ID";
+            cmbCategoriaArticulo.DisplayMember = "Descripcion";
+            cmbCategoriaArticulo.ValueMember = "ID";
+
             dgvListaArticulos.DataSource = lstArticulo;
 
             OcultarColumnas();
@@ -182,5 +187,7 @@ namespace Prog3_TP2_WinForm
             }
             Cargar();
         }
+
+
     }
 }

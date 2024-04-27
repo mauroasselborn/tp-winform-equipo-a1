@@ -24,6 +24,10 @@ namespace Prog3_TP2_WinForm
 
             CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
             MarcaNegocio marcaNegocio = new MarcaNegocio();
+            cmbMarca.DisplayMember = "Descripcion";
+            cmbMarca.ValueMember = "ID";
+            cmbCategoria.DisplayMember = "Descripcion";
+            cmbCategoria.ValueMember = "ID";
 
             cmbCategoria.DataSource = categoriaNegocio.listar();
             cmbMarca.DataSource = marcaNegocio.listar(true);
@@ -52,8 +56,8 @@ namespace Prog3_TP2_WinForm
                     PcbArticulo.Load("https://cdn.vectorstock.com/i/1000v/31/20/image-error-icon-editable-outline-vector-30393120.jpg");
                 }
 
-                cmbCategoria.SelectedItem = articulo.Categoria;
-                cmbMarca.SelectedItem = articulo.Marca;
+                cmbCategoria.SelectedValue = articulo.Categoria.Id;
+                cmbMarca.SelectedValue = articulo.Marca.Id;
             }
         }
 
@@ -99,11 +103,11 @@ namespace Prog3_TP2_WinForm
 
                     if (TxtPrecio.Text != "")
                         articulo.Precio = Convert.ToDecimal(TxtPrecio.Text);
-
-                    articulo.Imagenes = new Imagen();
-                    articulo.Imagenes.ImagenUrl = TxtUrlImg.Text;
-                    CargarImagen(TxtUrlImg.Text);
-
+                    if (TxtUrlImg.Text != "")
+                    {
+                        articulo.Imagenes = new Imagen();
+                        articulo.Imagenes.ImagenUrl = TxtUrlImg.Text;
+                    }
                     articulo.Categoria = (Categoria)cmbCategoria.SelectedItem;
                     articulo.Marca = (Marca)cmbMarca.SelectedItem;
                     if (ValidarTodo())
@@ -125,8 +129,8 @@ namespace Prog3_TP2_WinForm
 
         private bool ValidarTodo()
         {
-            if (TxtCodigo.Text == "" && TxtNombre.Text == "" &&
-                TxtDescripcion.Text == "" && TxtUrlImg.Text == "" &&
+            if (TxtCodigo.Text == "" || TxtNombre.Text == "" ||
+                TxtDescripcion.Text == "" || TxtUrlImg.Text == "" ||
                 TxtPrecio.Text == "")
             {
                 MessageBox.Show("Por favor completar todos los campos");
