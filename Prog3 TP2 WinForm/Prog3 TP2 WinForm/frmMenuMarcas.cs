@@ -15,7 +15,7 @@ namespace Prog3_TP2_WinForm
         private void frmMenuMarcas_Load(object sender, EventArgs e)
         {
             MarcaNegocio marcaNegocio = new MarcaNegocio();
-            dgvListaMarcas.DataSource = marcaNegocio.listar(false);
+            dgvListaMarcas.DataSource = marcaNegocio.listar();
         }
 
         private void btnAgregarMarca_Click(object sender, EventArgs e)
@@ -29,13 +29,13 @@ namespace Prog3_TP2_WinForm
                 {
                     marca.Descripcion = txtDescripcionMarca.Text;
                     marcaNegocio.Agregar(marca);
-                    dgvListaMarcas.DataSource = marcaNegocio.listar(false);
+                    dgvListaMarcas.DataSource = marcaNegocio.listar();
                     limpiarForm();
                     MessageBox.Show("Agregado Correctamente");
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Ocurrió un error al agregar la Marca, consulte con el administrador del sistema");
+                    MessageBox.Show(ex.Message);
                 }
             }
             else
@@ -51,14 +51,14 @@ namespace Prog3_TP2_WinForm
 
             try
             {
-                marcaNegocio.EliminarLogico(marca.Id);
-                dgvListaMarcas.DataSource = marcaNegocio.listar(false);
+                marcaNegocio.Eliminar(marca.Id);
+                dgvListaMarcas.DataSource = marcaNegocio.listar();
                 limpiarForm();
                 MessageBox.Show("Baja Realizada");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Ocurrió un error al eliminar la Marca, consulte con el administrador del sistema"); ;
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -79,7 +79,7 @@ namespace Prog3_TP2_WinForm
                     if (validarForm())
                     {
                         marcaNegocio.Editar(marca.Id, txtDescripcionMarca.Text);
-                        dgvListaMarcas.DataSource = marcaNegocio.listar(false);
+                        dgvListaMarcas.DataSource = marcaNegocio.listar();
                         limpiarForm();
                         MessageBox.Show("Editado Correctamente");
                     }
@@ -89,9 +89,9 @@ namespace Prog3_TP2_WinForm
                     }
 
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Ocurrió un error al editar la Marca, consulte con el administrador del sistema"); ;
+                    MessageBox.Show(ex.Message);
                 }
                 finally
                 {

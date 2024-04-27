@@ -6,17 +6,14 @@ namespace Negocio
 {
     public class MarcaNegocio
     {
-        public List<Marca> listar(bool soloActivos)
+        public List<Marca> listar()
         {
             List<Marca> lista = new List<Marca>();
             AccesoDatos accesoDatos = new AccesoDatos();
 
             try
             {
-                string cadenaAux = "";
-                if (soloActivos)
-                    cadenaAux = " WHERE Activo = 1";
-                accesoDatos.setearConsulta("SELECT Id, Descripcion, Activo FROM marcas"+cadenaAux);
+                accesoDatos.setearConsulta("SELECT Id, Descripcion FROM marcas");
                 accesoDatos.ejecutarLectura();
 
                 while (accesoDatos.Lector.Read())
@@ -25,15 +22,13 @@ namespace Negocio
 
                     marca.Id = (int)accesoDatos.Lector["Id"];
                     marca.Descripcion = (string)accesoDatos.Lector["Descripcion"];
-                    marca.Activo = (bool)accesoDatos.Lector["Activo"];
                     lista.Add(marca);
                 }
                 return lista;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-
-                throw ex;
+                throw new Exception("Error al obtener el listado");
             }
             finally
             {
@@ -47,13 +42,12 @@ namespace Negocio
 
             try
             {
-                accesoDatos.setearConsulta("INSERT INTO MARCAS (Descripcion, Activo) VALUES ('" + nueva.Descripcion + "','1')");
+                accesoDatos.setearConsulta("INSERT INTO MARCAS (Descripcion) VALUES ('" + nueva.Descripcion + "')");
                 accesoDatos.ejecutarAccion();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-
-                throw ex;
+                throw new Exception("Error al guardar");
             }
             finally
             {
@@ -61,19 +55,25 @@ namespace Negocio
             }
         }
 
-        public void EliminarLogico(int id)
+        public void Eliminar(int id)
         {
             AccesoDatos accesoDatos = new AccesoDatos();
 
             try
             {
-                accesoDatos.setearConsulta("UPDATE MARCAS SET Activo = 0 WHERE Id = " + id);
-                accesoDatos.ejecutarAccion();
+                if(validarEliminación(id))
+                {
+                    accesoDatos.setearConsulta("DELETE FROM MARCAS WHERE Id = " + id);
+                    accesoDatos.ejecutarAccion();
+                }
+                else
+                {
+                    throw new Exception();
+                }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-
-                throw ex;
+                throw new Exception("Error al eliminar. Pruebe a eliminar o modificar los articulos relacionados");
             }
             finally
             {
@@ -90,15 +90,42 @@ namespace Negocio
                 accesoDatos.setearConsulta("UPDATE MARCAS SET Descripcion = '" + descricion + "' WHERE Id = " + id);
                 accesoDatos.ejecutarAccion();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
-                throw ex;
+                throw new Exception("Error al editar");
             }
             finally
             {
                 accesoDatos.cerrarConexion();
             }
+        }
+
+        public bool validarEliminación(int id)
+        {            
+            AccesoDatos accesoDatos = new AccesoDatos();
+            bool result = false;
+
+            try
+            {
+                accesoDatos.setearConsulta("SELECT Count(Id) C FROM ARTICULOS WHERE IdMarca="+id);
+                accesoDatos.ejecutarLectura();
+
+                while (accesoDatos.Lector.Read())
+                {
+                    result = !((int)accesoDatos.Lector["C"] > 0);
+                }
+            }
+            catch (Exception)
+            {
+                throw new Exception();
+            }
+            finally
+            {
+                accesoDatos.cerrarConexion();                
+            }
+
+            return result;
         }
     }
 }

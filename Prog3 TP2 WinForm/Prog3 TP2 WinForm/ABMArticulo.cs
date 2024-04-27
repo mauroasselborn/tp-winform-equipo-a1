@@ -26,7 +26,7 @@ namespace Prog3_TP2_WinForm
             MarcaNegocio marcaNegocio = new MarcaNegocio();
 
             cmbCategoria.DataSource = categoriaNegocio.listar();
-            cmbMarca.DataSource = marcaNegocio.listar(true);
+            cmbMarca.DataSource = marcaNegocio.listar();
 
             if (articulo.Codigo == null)
             {
