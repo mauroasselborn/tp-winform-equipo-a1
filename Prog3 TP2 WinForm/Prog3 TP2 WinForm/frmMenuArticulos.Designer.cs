@@ -146,6 +146,7 @@ namespace Prog3_TP2_WinForm
             this.cmbCategoriaArticulo.Name = "cmbCategoriaArticulo";
             this.cmbCategoriaArticulo.Size = new System.Drawing.Size(171, 21);
             this.cmbCategoriaArticulo.TabIndex = 4;
+            this.cmbCategoriaArticulo.SelectedIndexChanged += new System.EventHandler(this.cmbCategoriaArticulo_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -163,6 +164,7 @@ namespace Prog3_TP2_WinForm
             this.cmbMarcaArticulo.Name = "cmbMarcaArticulo";
             this.cmbMarcaArticulo.Size = new System.Drawing.Size(171, 21);
             this.cmbMarcaArticulo.TabIndex = 3;
+            this.cmbMarcaArticulo.SelectedIndexChanged += new System.EventHandler(this.cmbMarcaArticulo_SelectedIndexChanged);
             // 
             // label4
             // 

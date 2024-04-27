@@ -42,8 +42,16 @@ namespace Prog3_TP2_WinForm
             MarcaNegocio marcaNegocio = new MarcaNegocio();
 
             lstArticulo = articuloNegocio.Listar();
-            cmbCategoriaArticulo.DataSource = categoriaNegocio.listar();
-            cmbMarcaArticulo.DataSource = marcaNegocio.listar();
+
+            List<Categoria> categorias = new List<Categoria>();
+            categorias.Add(new Categoria());
+            categorias.AddRange(categoriaNegocio.listar());
+            cmbCategoriaArticulo.DataSource = categorias;
+
+            List<Marca> marcas = new List<Marca>();
+            marcas.Add(new Marca());
+            marcas.AddRange(marcaNegocio.listar());
+            cmbMarcaArticulo.DataSource = marcas;
 
             cmbMarcaArticulo.DisplayMember = "Descripcion";
             cmbMarcaArticulo.ValueMember = "ID";
@@ -188,6 +196,40 @@ namespace Prog3_TP2_WinForm
             Cargar();
         }
 
+        private void cmbMarcaArticulo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            List<Articulo> lstFiltrada = new List<Articulo>();
 
+            if (cmbMarcaArticulo.SelectedIndex>0)
+            {
+                lstFiltrada = lstArticulo.FindAll(x => x.Marca.Id == ((Marca)cmbMarcaArticulo.SelectedItem).Id);
+            }
+            else
+            {
+                lstFiltrada = lstArticulo;
+            }
+
+            dgvListaArticulos.DataSource = null;
+            dgvListaArticulos.DataSource = lstFiltrada;
+            OcultarColumnas();
+        }
+
+        private void cmbCategoriaArticulo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            List<Articulo> lstFiltrada = new List<Articulo>();
+
+            if (cmbCategoriaArticulo.SelectedIndex > 0)
+            {
+                lstFiltrada = lstArticulo.FindAll(x => x.Categoria.Id == ((Categoria)cmbCategoriaArticulo.SelectedItem).Id);
+            }
+            else
+            {
+                lstFiltrada = lstArticulo;
+            }
+
+            dgvListaArticulos.DataSource = null;
+            dgvListaArticulos.DataSource = lstFiltrada;
+            OcultarColumnas();
+        }
     }
 }
