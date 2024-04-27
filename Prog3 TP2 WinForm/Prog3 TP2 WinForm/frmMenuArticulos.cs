@@ -10,6 +10,8 @@ namespace Prog3_TP2_WinForm
     public partial class frmMenuArticulos : Form
     {
         private List<Articulo> lstArticulo;
+        private Articulo Seleccionado;
+
         public frmMenuArticulos()
         {
             InitializeComponent();
@@ -24,8 +26,8 @@ namespace Prog3_TP2_WinForm
         {
             if (dgvListaArticulos.CurrentRow != null)
             {
-                Articulo Seleccionado = (Articulo)dgvListaArticulos.CurrentRow.DataBoundItem;
-                CargarImagen(Seleccionado);
+                Seleccionado = (Articulo)dgvListaArticulos.CurrentRow.DataBoundItem;
+                CargarImagen(0);
             }
         }
 
@@ -66,21 +68,7 @@ namespace Prog3_TP2_WinForm
         private void OcultarColumnas()
         {
             dgvListaArticulos.Columns["Id"].Visible = false;
-            dgvListaArticulos.Columns["Imagenes"].Visible = false;
-        }
-
-        private void CargarImagen(Articulo Seleccionado)
-        {
-            try
-            {
-                pbxArticulo.Load(Seleccionado.Imagenes.ImagenUrl);
-
-            }
-            catch (Exception)
-            {
-                pbxArticulo.Load("https://cdn.vectorstock.com/i/1000v/31/20/image-error-icon-editable-outline-vector-30393120.jpg");
-            }
-        }
+        }       
 
         private void btnEditarArticulo_Click(object sender, EventArgs e)
         {
@@ -244,6 +232,49 @@ namespace Prog3_TP2_WinForm
             dgvListaArticulos.DataSource = null;
             dgvListaArticulos.DataSource = lstFiltrada;
             OcultarColumnas();
+        }
+
+        private void CargarImagen(int indice)
+        {
+            try
+            {
+                pbxArticulo.Load(Seleccionado.Imagenes[indice].ImagenUrl);
+                pbxArticulo.Tag = indice;
+                lblImagen.Text = "Imagen " + ((int)indice+1) + " de " + Seleccionado.Imagenes.Count;
+                if (indice == 0)
+                    btnAnterior.Enabled = false;
+                else
+                    btnAnterior.Enabled = true;
+                if (indice < Seleccionado.Imagenes.Count - 1)
+                    btnSiguiente.Enabled = true;
+                else
+                    btnSiguiente.Enabled = false;
+            }
+            catch (Exception)
+            {
+                pbxArticulo.Load("https://cdn.vectorstock.com/i/1000v/31/20/image-error-icon-editable-outline-vector-30393120.jpg");
+                btnAnterior.Enabled = false;
+                btnSiguiente.Enabled = false;
+                lblImagen.Text = "";
+            }
+        }
+
+        private void btnAnterior_Click(object sender, EventArgs e)
+        {
+            if((int)pbxArticulo.Tag>0)
+            {
+                int indice = ((int)pbxArticulo.Tag)-1;
+                CargarImagen(indice);
+            }
+        }
+
+        private void btnSiguiente_Click(object sender, EventArgs e)
+        {
+            if ((int)pbxArticulo.Tag < Seleccionado.Imagenes.Count-1)
+            {
+                int indice = ((int)pbxArticulo.Tag) + 1;
+                CargarImagen(indice);
+            }
         }
     }
 }

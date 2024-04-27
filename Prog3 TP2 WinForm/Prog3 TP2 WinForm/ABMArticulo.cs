@@ -8,6 +8,7 @@ namespace Prog3_TP2_WinForm
     public partial class ABMArticulo : Form
     {
         private Articulo articulo = null;
+
         public ABMArticulo()
         {
             InitializeComponent();
@@ -45,16 +46,8 @@ namespace Prog3_TP2_WinForm
                 TxtNombre.Text = articulo.Nombre;
                 TxtDescripcion.Text = articulo.Descripcion;
                 TxtPrecio.Text = articulo.Precio.ToString();
-                TxtUrlImg.Text = articulo.Imagenes.ImagenUrl;
-                try
-                {
-                    PcbArticulo.Load(articulo.Imagenes.ImagenUrl);
-
-                }
-                catch (Exception)
-                {
-                    PcbArticulo.Load("https://cdn.vectorstock.com/i/1000v/31/20/image-error-icon-editable-outline-vector-30393120.jpg");
-                }
+                TxtUrlImg.Text = articulo.Imagenes[0].ImagenUrl;
+                CargarImagen(0);
 
                 cmbCategoria.SelectedValue = articulo.Categoria.Id;
                 cmbMarca.SelectedValue = articulo.Marca.Id;
@@ -78,8 +71,8 @@ namespace Prog3_TP2_WinForm
 
                     if (TxtUrlImg.Text != "")
                     {
-                        articulo.Imagenes = new Imagen();
-                        articulo.Imagenes.ImagenUrl = TxtUrlImg.Text;
+                        articulo.Imagenes[0] = new Imagen();
+                        articulo.Imagenes[0].ImagenUrl = TxtUrlImg.Text;
                     }
 
                     articulo.Categoria = (Categoria)cmbCategoria.SelectedItem;
@@ -103,11 +96,7 @@ namespace Prog3_TP2_WinForm
 
                     if (TxtPrecio.Text != "")
                         articulo.Precio = Convert.ToDecimal(TxtPrecio.Text);
-                    if (TxtUrlImg.Text != "")
-                    {
-                        articulo.Imagenes = new Imagen();
-                        articulo.Imagenes.ImagenUrl = TxtUrlImg.Text;
-                    }
+
                     articulo.Categoria = (Categoria)cmbCategoria.SelectedItem;
                     articulo.Marca = (Marca)cmbMarca.SelectedItem;
                     if (ValidarTodo())
@@ -146,35 +135,82 @@ namespace Prog3_TP2_WinForm
                 e.Handled = true;
             }
         }
-        private void CargarImagen(string URL)
+        private void CargarImagen(int indice)
         {
             try
             {
-                PcbArticulo.Load(URL);
-
+                PcbArticulo.Load(articulo.Imagenes[indice].ImagenUrl);
+                PcbArticulo.Tag = indice;
+                TxtUrlImg.Text = articulo.Imagenes[indice].ImagenUrl;
+                lblImagen.Text = "Imagen " + ((int)indice + 1) + " de " + articulo.Imagenes.Count;
+                if (indice == 0)
+                    btnAnterior.Enabled = false;
+                else
+                    btnAnterior.Enabled = true;
+                if (indice < articulo.Imagenes.Count - 1)
+                    btnSiguiente.Enabled = true;
+                else
+                    btnSiguiente.Enabled = false;
             }
             catch (Exception)
             {
                 PcbArticulo.Load("https://cdn.vectorstock.com/i/1000v/31/20/image-error-icon-editable-outline-vector-30393120.jpg");
-            }
-        }
-
-        private void TxtUrlImg_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                CargarImagen(TxtUrlImg.Text);
-            }
-            catch (Exception)
-            {
-
-                MessageBox.Show("Por favor utilice un link valido");
+                btnAnterior.Enabled = false;
+                btnSiguiente.Enabled = false;
+                lblImagen.Text = "";
+                PcbArticulo.Tag = indice;
             }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void btnAnterior_Click(object sender, EventArgs e)
+        {
+            if ((int)PcbArticulo.Tag > 0)
+            {
+                int indice = ((int)PcbArticulo.Tag) - 1;
+                CargarImagen(indice);
+            }
+        }
+
+        private void btnSiguiente_Click(object sender, EventArgs e)
+        {
+            if ((int)PcbArticulo.Tag < articulo.Imagenes.Count - 1)
+            {
+                int indice = ((int)PcbArticulo.Tag) + 1;
+                CargarImagen(indice);
+            }
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            ABMImagen aBMImagen = new ABMImagen(articulo);
+            aBMImagen.ShowDialog();
+            CargarImagen(articulo.Imagenes.Count - 1);
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            ABMImagen aBMImagen = new ABMImagen(articulo, (int)PcbArticulo.Tag);
+            aBMImagen.ShowDialog();
+            CargarImagen((int)PcbArticulo.Tag);
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if(articulo.Imagenes.Count>1)
+            {
+                articulo.Imagenes.RemoveAt((int)PcbArticulo.Tag);
+                CargarImagen(0);
+                MessageBox.Show("Imagen eliminada. Recuerde guardar el articulo completo para guardar los cambios en las imagenes");
+            }
+            else
+            {
+                MessageBox.Show("El articulo debe tener por lo menos una imagen");
+            }
         }
     }
 }

@@ -48,10 +48,15 @@ namespace Prog3_TP2_WinForm
             this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.pbxArticulo = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnAnterior = new System.Windows.Forms.Button();
+            this.btnSiguiente = new System.Windows.Forms.Button();
+            this.lblImagen = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaArticulos)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TBPrecio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvListaArticulos
@@ -86,15 +91,15 @@ namespace Prog3_TP2_WinForm
             this.panel1.Controls.Add(this.txtCodigoArticulo);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label7);
-            this.panel1.Location = new System.Drawing.Point(12, 271);
+            this.panel1.Location = new System.Drawing.Point(12, 315);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(254, 363);
+            this.panel1.Size = new System.Drawing.Size(254, 319);
             this.panel1.TabIndex = 5;
             // 
             // TBPrecio
             // 
             this.TBPrecio.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.TBPrecio.Location = new System.Drawing.Point(6, 250);
+            this.TBPrecio.Location = new System.Drawing.Point(6, 234);
             this.TBPrecio.Name = "TBPrecio";
             this.TBPrecio.Size = new System.Drawing.Size(232, 45);
             this.TBPrecio.TabIndex = 11;
@@ -103,7 +108,7 @@ namespace Prog3_TP2_WinForm
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 234);
+            this.label1.Location = new System.Drawing.Point(3, 218);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(37, 13);
             this.label1.TabIndex = 10;
@@ -111,7 +116,7 @@ namespace Prog3_TP2_WinForm
             // 
             // btnEditarArticulo
             // 
-            this.btnEditarArticulo.Location = new System.Drawing.Point(175, 316);
+            this.btnEditarArticulo.Location = new System.Drawing.Point(175, 284);
             this.btnEditarArticulo.Name = "btnEditarArticulo";
             this.btnEditarArticulo.Size = new System.Drawing.Size(75, 23);
             this.btnEditarArticulo.TabIndex = 7;
@@ -121,7 +126,7 @@ namespace Prog3_TP2_WinForm
             // 
             // btnEliminarArticulo
             // 
-            this.btnEliminarArticulo.Location = new System.Drawing.Point(88, 316);
+            this.btnEliminarArticulo.Location = new System.Drawing.Point(88, 284);
             this.btnEliminarArticulo.Name = "btnEliminarArticulo";
             this.btnEliminarArticulo.Size = new System.Drawing.Size(75, 23);
             this.btnEliminarArticulo.TabIndex = 6;
@@ -131,7 +136,7 @@ namespace Prog3_TP2_WinForm
             // 
             // btnAgregarArticulo
             // 
-            this.btnAgregarArticulo.Location = new System.Drawing.Point(2, 316);
+            this.btnAgregarArticulo.Location = new System.Drawing.Point(2, 284);
             this.btnAgregarArticulo.Name = "btnAgregarArticulo";
             this.btnAgregarArticulo.Size = new System.Drawing.Size(75, 23);
             this.btnAgregarArticulo.TabIndex = 5;
@@ -142,7 +147,7 @@ namespace Prog3_TP2_WinForm
             // cmbCategoriaArticulo
             // 
             this.cmbCategoriaArticulo.FormattingEnabled = true;
-            this.cmbCategoriaArticulo.Location = new System.Drawing.Point(67, 203);
+            this.cmbCategoriaArticulo.Location = new System.Drawing.Point(67, 187);
             this.cmbCategoriaArticulo.Name = "cmbCategoriaArticulo";
             this.cmbCategoriaArticulo.Size = new System.Drawing.Size(171, 21);
             this.cmbCategoriaArticulo.TabIndex = 4;
@@ -151,7 +156,7 @@ namespace Prog3_TP2_WinForm
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 206);
+            this.label6.Location = new System.Drawing.Point(3, 190);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(54, 13);
             this.label6.TabIndex = 9;
@@ -160,7 +165,7 @@ namespace Prog3_TP2_WinForm
             // cmbMarcaArticulo
             // 
             this.cmbMarcaArticulo.FormattingEnabled = true;
-            this.cmbMarcaArticulo.Location = new System.Drawing.Point(67, 176);
+            this.cmbMarcaArticulo.Location = new System.Drawing.Point(67, 160);
             this.cmbMarcaArticulo.Name = "cmbMarcaArticulo";
             this.cmbMarcaArticulo.Size = new System.Drawing.Size(171, 21);
             this.cmbMarcaArticulo.TabIndex = 3;
@@ -169,7 +174,7 @@ namespace Prog3_TP2_WinForm
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 179);
+            this.label4.Location = new System.Drawing.Point(3, 163);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(37, 13);
             this.label4.TabIndex = 7;
@@ -177,7 +182,7 @@ namespace Prog3_TP2_WinForm
             // 
             // txtDescripcionArticulo
             // 
-            this.txtDescripcionArticulo.Location = new System.Drawing.Point(67, 147);
+            this.txtDescripcionArticulo.Location = new System.Drawing.Point(67, 131);
             this.txtDescripcionArticulo.Name = "txtDescripcionArticulo";
             this.txtDescripcionArticulo.Size = new System.Drawing.Size(171, 20);
             this.txtDescripcionArticulo.TabIndex = 2;
@@ -186,7 +191,7 @@ namespace Prog3_TP2_WinForm
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 150);
+            this.label5.Location = new System.Drawing.Point(3, 134);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(63, 13);
             this.label5.TabIndex = 5;
@@ -194,7 +199,7 @@ namespace Prog3_TP2_WinForm
             // 
             // txtNombreArticulo
             // 
-            this.txtNombreArticulo.Location = new System.Drawing.Point(67, 121);
+            this.txtNombreArticulo.Location = new System.Drawing.Point(67, 105);
             this.txtNombreArticulo.Name = "txtNombreArticulo";
             this.txtNombreArticulo.Size = new System.Drawing.Size(171, 20);
             this.txtNombreArticulo.TabIndex = 1;
@@ -203,7 +208,7 @@ namespace Prog3_TP2_WinForm
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 124);
+            this.label3.Location = new System.Drawing.Point(3, 108);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 13);
             this.label3.TabIndex = 3;
@@ -211,7 +216,7 @@ namespace Prog3_TP2_WinForm
             // 
             // txtCodigoArticulo
             // 
-            this.txtCodigoArticulo.Location = new System.Drawing.Point(67, 95);
+            this.txtCodigoArticulo.Location = new System.Drawing.Point(67, 79);
             this.txtCodigoArticulo.Name = "txtCodigoArticulo";
             this.txtCodigoArticulo.Size = new System.Drawing.Size(171, 20);
             this.txtCodigoArticulo.TabIndex = 0;
@@ -220,7 +225,7 @@ namespace Prog3_TP2_WinForm
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 98);
+            this.label2.Location = new System.Drawing.Point(3, 82);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 13);
             this.label2.TabIndex = 1;
@@ -248,11 +253,52 @@ namespace Prog3_TP2_WinForm
             this.pbxArticulo.TabIndex = 2;
             this.pbxArticulo.TabStop = false;
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.DarkGray;
+            this.panel2.Controls.Add(this.lblImagen);
+            this.panel2.Controls.Add(this.btnSiguiente);
+            this.panel2.Controls.Add(this.btnAnterior);
+            this.panel2.Location = new System.Drawing.Point(12, 271);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(254, 38);
+            this.panel2.TabIndex = 6;
+            // 
+            // btnAnterior
+            // 
+            this.btnAnterior.Location = new System.Drawing.Point(7, 7);
+            this.btnAnterior.Name = "btnAnterior";
+            this.btnAnterior.Size = new System.Drawing.Size(34, 23);
+            this.btnAnterior.TabIndex = 7;
+            this.btnAnterior.Text = "<";
+            this.btnAnterior.UseVisualStyleBackColor = true;
+            this.btnAnterior.Click += new System.EventHandler(this.btnAnterior_Click);
+            // 
+            // btnSiguiente
+            // 
+            this.btnSiguiente.Location = new System.Drawing.Point(213, 8);
+            this.btnSiguiente.Name = "btnSiguiente";
+            this.btnSiguiente.Size = new System.Drawing.Size(34, 23);
+            this.btnSiguiente.TabIndex = 8;
+            this.btnSiguiente.Text = ">";
+            this.btnSiguiente.UseVisualStyleBackColor = true;
+            this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click);
+            // 
+            // lblImagen
+            // 
+            this.lblImagen.AutoSize = true;
+            this.lblImagen.Location = new System.Drawing.Point(87, 12);
+            this.lblImagen.Name = "lblImagen";
+            this.lblImagen.Size = new System.Drawing.Size(75, 13);
+            this.lblImagen.TabIndex = 7;
+            this.lblImagen.Text = "Imagen 1 de 1";
+            // 
             // frmMenuArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(931, 644);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dgvListaArticulos);
             this.Controls.Add(this.pbxArticulo);
@@ -269,6 +315,8 @@ namespace Prog3_TP2_WinForm
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TBPrecio)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -293,5 +341,9 @@ namespace Prog3_TP2_WinForm
         private System.Windows.Forms.Button btnAgregarArticulo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TrackBar TBPrecio;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label lblImagen;
+        private System.Windows.Forms.Button btnSiguiente;
+        private System.Windows.Forms.Button btnAnterior;
     }
 }
