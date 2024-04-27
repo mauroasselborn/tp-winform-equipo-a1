@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ABMMarca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABMMarca.Designer.cs">
+      <DependentUpon>ABMMarca.cs</DependentUpon>
+    </Compile>
     <Compile Include="ABMArticulo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ABMMarca.resx">
+      <DependentUpon>ABMMarca.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ABMArticulo.resx">
       <DependentUpon>ABMArticulo.cs</DependentUpon>
     </EmbeddedResource>

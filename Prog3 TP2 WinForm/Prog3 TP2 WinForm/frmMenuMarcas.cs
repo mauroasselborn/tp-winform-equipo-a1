@@ -14,34 +14,20 @@ namespace Prog3_TP2_WinForm
 
         private void frmMenuMarcas_Load(object sender, EventArgs e)
         {
+            Cargar();
+        }
+
+        private void Cargar()
+        {
             MarcaNegocio marcaNegocio = new MarcaNegocio();
             dgvListaMarcas.DataSource = marcaNegocio.listar();
         }
 
         private void btnAgregarMarca_Click(object sender, EventArgs e)
         {
-            if(validarForm())
-            {
-                Marca marca = new Marca();
-                MarcaNegocio marcaNegocio = new MarcaNegocio();
-
-                try
-                {
-                    marca.Descripcion = txtDescripcionMarca.Text;
-                    marcaNegocio.Agregar(marca);
-                    dgvListaMarcas.DataSource = marcaNegocio.listar();
-                    limpiarForm();
-                    MessageBox.Show("Agregado Correctamente");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Debe ingresar una descripción");
-            }            
+            ABMMarca AbmMarca = new ABMMarca();
+            AbmMarca.ShowDialog();
+            Cargar();         
         }       
 
         private void btnEliminarMarca_Click(object sender, EventArgs e)
@@ -49,55 +35,31 @@ namespace Prog3_TP2_WinForm
             Marca marca = (Marca)dgvListaMarcas.CurrentRow.DataBoundItem;
             MarcaNegocio marcaNegocio = new MarcaNegocio();
 
-            try
-            {
-                marcaNegocio.Eliminar(marca.Id);
-                dgvListaMarcas.DataSource = marcaNegocio.listar();
-                limpiarForm();
-                MessageBox.Show("Baja Realizada");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
+            DialogResult dialogResult = MessageBox.Show("Seguro desea Eliminar?", "Eliminar", MessageBoxButtons.YesNo);
 
-        private void btnEditarMarca_Click(object sender, EventArgs e)
-        {
-            MarcaNegocio marcaNegocio = new MarcaNegocio();
-            Marca marca = (Marca)dgvListaMarcas.CurrentRow.DataBoundItem;
-
-            if (btnEditarMarca.Text == "Editar")
-            {
-                txtDescripcionMarca.Text = marca.Descripcion;
-                btnEditarMarca.Text = "Guardar";
-            }
-            else
+            if (dialogResult == DialogResult.Yes)
             {
                 try
                 {
-                    if (validarForm())
-                    {
-                        marcaNegocio.Editar(marca.Id, txtDescripcionMarca.Text);
-                        dgvListaMarcas.DataSource = marcaNegocio.listar();
-                        limpiarForm();
-                        MessageBox.Show("Editado Correctamente");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Debe ingresar una descripcion");
-                    }
-
+                    marcaNegocio.Eliminar(marca.Id);
+                    dgvListaMarcas.DataSource = marcaNegocio.listar();
+                    limpiarForm();
+                    MessageBox.Show("Baja Realizada");
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
-                finally
-                {
-                    btnEditarMarca.Text = "Editar";
-                }
-            }
+            }                
+        }
+
+        private void btnEditarMarca_Click(object sender, EventArgs e)
+        {
+            Marca Seleccionado = (Marca)dgvListaMarcas.CurrentRow.DataBoundItem;
+
+            ABMMarca AbmMarca = new ABMMarca(Seleccionado);
+            AbmMarca.ShowDialog();
+            Cargar();
         }
 
         public bool validarForm()

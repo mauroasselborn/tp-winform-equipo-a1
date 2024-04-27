@@ -119,7 +119,7 @@
             this.dgvListaMarcas.Location = new System.Drawing.Point(275, 12);
             this.dgvListaMarcas.Name = "dgvListaMarcas";
             this.dgvListaMarcas.ReadOnly = true;
-            this.dgvListaMarcas.Size = new System.Drawing.Size(347, 488);
+            this.dgvListaMarcas.Size = new System.Drawing.Size(247, 488);
             this.dgvListaMarcas.TabIndex = 9;
             // 
             // pictureBox1
@@ -137,12 +137,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(634, 511);
+            this.ClientSize = new System.Drawing.Size(534, 511);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dgvListaMarcas);
             this.Controls.Add(this.pictureBox1);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(650, 550);
+            this.MaximumSize = new System.Drawing.Size(550, 550);
             this.MinimumSize = new System.Drawing.Size(550, 550);
             this.Name = "frmMenuMarcas";
             this.ShowIcon = false;

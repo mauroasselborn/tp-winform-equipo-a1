@@ -171,5 +171,10 @@ namespace Prog3_TP2_WinForm
                 MessageBox.Show("Por favor utilice un link valido");
             }
         }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
