@@ -2,11 +2,13 @@
 using Dominio;
 using Negocio;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace Prog3_TP2_WinForm
 {
     public partial class frmMenuMarcas : Form
     {
+        private List<Marca> lstMarca;
         public frmMenuMarcas()
         {
             InitializeComponent();
@@ -20,7 +22,8 @@ namespace Prog3_TP2_WinForm
         private void Cargar()
         {
             MarcaNegocio marcaNegocio = new MarcaNegocio();
-            dgvListaMarcas.DataSource = marcaNegocio.listar();
+            lstMarca = marcaNegocio.listar();
+            dgvListaMarcas.DataSource = lstMarca;
         }
 
         private void btnAgregarMarca_Click(object sender, EventArgs e)
@@ -70,6 +73,24 @@ namespace Prog3_TP2_WinForm
         public void limpiarForm()
         {
             txtDescripcionMarca.ResetText();
+        }
+
+        private void txtDescripcionMarca_KeyUp(object sender, KeyEventArgs e)
+        {
+            List<Marca> lstFiltrada = new List<Marca>();
+
+            if (txtDescripcionMarca.Text != "")
+            {
+                lstFiltrada = lstMarca.FindAll(x => x.Descripcion.ToLower().Contains(txtDescripcionMarca.Text.ToLower()));
+
+            }
+            else
+            {
+                lstFiltrada = lstMarca;
+            }
+
+            dgvListaMarcas.DataSource = null;
+            dgvListaMarcas.DataSource = lstFiltrada;
         }
     }
 }

@@ -93,6 +93,7 @@
             this.txtDescripcionMarca.Name = "txtDescripcionMarca";
             this.txtDescripcionMarca.Size = new System.Drawing.Size(171, 20);
             this.txtDescripcionMarca.TabIndex = 1;
+            this.txtDescripcionMarca.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtDescripcionMarca_KeyUp);
             // 
             // label3
             // 
