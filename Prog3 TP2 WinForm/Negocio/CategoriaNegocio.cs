@@ -48,7 +48,7 @@ namespace Negocio
 
             try
             {
-                accesoDatos.setearConsulta("INSERT INTO CATEGORIAS (Descripcion, Activo) VALUES ('" + nueva.Descripcion + "','1')");
+                accesoDatos.setearConsulta("INSERT INTO CATEGORIAS (Descripcion) VALUES ('" + nueva.Descripcion + "')");
                 accesoDatos.ejecutarAccion();
             }
             catch (Exception ex)
@@ -62,13 +62,13 @@ namespace Negocio
             }
         }
 
-        public void EliminarLogico(int id)
+        public void Eliminar(int id)
         {
             AccesoDatos accesoDatos = new AccesoDatos();
 
             try
             {
-                accesoDatos.setearConsulta("UPDATE CATEGORIAS SET Activo = 0 WHERE Id = " + id);
+                accesoDatos.setearConsulta("DELETE CATEGORIAS WHERE Id = " + id);
                 accesoDatos.ejecutarAccion();
             }
             catch (Exception ex)

@@ -95,6 +95,7 @@ namespace Prog3_TP2_WinForm
 
             if (txtDescripcionMarca.Text != "")
             {
+                
                 lstFiltrada = lstMarca.FindAll(x => x.Descripcion.ToLower().Contains(txtDescripcionMarca.Text.ToLower()));
 
             }

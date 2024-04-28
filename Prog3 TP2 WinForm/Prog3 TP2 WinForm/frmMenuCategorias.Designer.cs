@@ -32,11 +32,14 @@
             this.btnEditarCategoria = new System.Windows.Forms.Button();
             this.btnEliminarCategoria = new System.Windows.Forms.Button();
             this.btnAgregarCategoria = new System.Windows.Forms.Button();
-            this.txtDescripcionCategoria = new System.Windows.Forms.TextBox();
+            this.txtFiltro = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.dgvListaCategorias = new System.Windows.Forms.DataGridView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaCategorias)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -46,10 +49,10 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkGray;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.txtDescripcion);
             this.panel1.Controls.Add(this.btnEditarCategoria);
             this.panel1.Controls.Add(this.btnEliminarCategoria);
             this.panel1.Controls.Add(this.btnAgregarCategoria);
-            this.panel1.Controls.Add(this.txtDescripcionCategoria);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Location = new System.Drawing.Point(12, 271);
@@ -59,7 +62,7 @@
             // 
             // btnEditarCategoria
             // 
-            this.btnEditarCategoria.Location = new System.Drawing.Point(175, 201);
+            this.btnEditarCategoria.Location = new System.Drawing.Point(175, 173);
             this.btnEditarCategoria.Name = "btnEditarCategoria";
             this.btnEditarCategoria.Size = new System.Drawing.Size(75, 23);
             this.btnEditarCategoria.TabIndex = 7;
@@ -69,7 +72,7 @@
             // 
             // btnEliminarCategoria
             // 
-            this.btnEliminarCategoria.Location = new System.Drawing.Point(88, 201);
+            this.btnEliminarCategoria.Location = new System.Drawing.Point(88, 173);
             this.btnEliminarCategoria.Name = "btnEliminarCategoria";
             this.btnEliminarCategoria.Size = new System.Drawing.Size(75, 23);
             this.btnEliminarCategoria.TabIndex = 6;
@@ -79,7 +82,7 @@
             // 
             // btnAgregarCategoria
             // 
-            this.btnAgregarCategoria.Location = new System.Drawing.Point(2, 201);
+            this.btnAgregarCategoria.Location = new System.Drawing.Point(2, 173);
             this.btnAgregarCategoria.Name = "btnAgregarCategoria";
             this.btnAgregarCategoria.Size = new System.Drawing.Size(75, 23);
             this.btnAgregarCategoria.TabIndex = 5;
@@ -87,17 +90,18 @@
             this.btnAgregarCategoria.UseVisualStyleBackColor = true;
             this.btnAgregarCategoria.Click += new System.EventHandler(this.btnAgregarCategoria_Click);
             // 
-            // txtDescripcionCategoria
+            // txtFiltro
             // 
-            this.txtDescripcionCategoria.Location = new System.Drawing.Point(67, 121);
-            this.txtDescripcionCategoria.Name = "txtDescripcionCategoria";
-            this.txtDescripcionCategoria.Size = new System.Drawing.Size(171, 20);
-            this.txtDescripcionCategoria.TabIndex = 1;
+            this.txtFiltro.Location = new System.Drawing.Point(275, 35);
+            this.txtFiltro.Name = "txtFiltro";
+            this.txtFiltro.Size = new System.Drawing.Size(248, 20);
+            this.txtFiltro.TabIndex = 1;
+            this.txtFiltro.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtFiltro_KeyUp);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 124);
+            this.label3.Location = new System.Drawing.Point(3, 103);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 13);
             this.label3.TabIndex = 3;
@@ -110,18 +114,19 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(254, 35);
             this.label7.TabIndex = 0;
-            this.label7.Text = "Datos de Categoría";
+            this.label7.Text = "ABM";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dgvListaCategorias
             // 
             this.dgvListaCategorias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListaCategorias.Location = new System.Drawing.Point(275, 12);
+            this.dgvListaCategorias.Location = new System.Drawing.Point(275, 61);
             this.dgvListaCategorias.MultiSelect = false;
             this.dgvListaCategorias.Name = "dgvListaCategorias";
             this.dgvListaCategorias.ReadOnly = true;
+            this.dgvListaCategorias.RowHeadersWidth = 51;
             this.dgvListaCategorias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListaCategorias.Size = new System.Drawing.Size(248, 488);
+            this.dgvListaCategorias.Size = new System.Drawing.Size(248, 439);
             this.dgvListaCategorias.TabIndex = 6;
             // 
             // pictureBox1
@@ -135,17 +140,46 @@
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(386, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "label1";
+            // 
+            // txtDescripcion
+            // 
+            this.txtDescripcion.Location = new System.Drawing.Point(53, 100);
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(191, 20);
+            this.txtDescripcion.TabIndex = 10;
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(328, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(149, 23);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "FILTRO";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // frmMenuCategorias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(534, 512);
+            this.ClientSize = new System.Drawing.Size(533, 510);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dgvListaCategorias);
             this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.txtFiltro);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(550, 551);
-            this.MinimumSize = new System.Drawing.Size(550, 551);
+            this.MaximumSize = new System.Drawing.Size(549, 549);
+            this.MinimumSize = new System.Drawing.Size(549, 549);
             this.Name = "frmMenuCategorias";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -156,6 +190,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaCategorias)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -165,10 +200,13 @@
         private System.Windows.Forms.Button btnEditarCategoria;
         private System.Windows.Forms.Button btnEliminarCategoria;
         private System.Windows.Forms.Button btnAgregarCategoria;
-        private System.Windows.Forms.TextBox txtDescripcionCategoria;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridView dgvListaCategorias;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox txtFiltro;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtDescripcion;
+        private System.Windows.Forms.Label label2;
     }
 }
