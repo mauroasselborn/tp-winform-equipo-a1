@@ -130,7 +130,7 @@ namespace Prog3_TP2_WinForm
 
         private void TxtPrecio_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!(e.KeyChar == ',') && !(e.KeyChar=='.') && !char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            if (!(e.KeyChar == ',') && !(e.KeyChar == '.') && !char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
             }
@@ -169,48 +169,85 @@ namespace Prog3_TP2_WinForm
 
         private void btnAnterior_Click(object sender, EventArgs e)
         {
-            if ((int)PcbArticulo.Tag > 0)
+            try
             {
-                int indice = ((int)PcbArticulo.Tag) - 1;
-                CargarImagen(indice);
+                if (PcbArticulo.Tag != null)
+                {
+                    if ((int)PcbArticulo.Tag > 0)
+                        MessageBox.Show("Por favorcargar una url");
+                    {
+                        int indice = ((int)PcbArticulo.Tag) - 1;
+                        CargarImagen(indice);
+                    }
+                }
             }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Por favorcargar una url");
+            }
+
         }
 
         private void btnSiguiente_Click(object sender, EventArgs e)
         {
-            if ((int)PcbArticulo.Tag < articulo.Imagenes.Count - 1)
+            try
             {
-                int indice = ((int)PcbArticulo.Tag) + 1;
-                CargarImagen(indice);
+                if (PcbArticulo.Tag != null)
+                {
+                    if ((int)PcbArticulo.Tag < articulo.Imagenes.Count - 1)
+                    {
+                        int indice = ((int)PcbArticulo.Tag) + 1;
+                        CargarImagen(indice);
+                    }
+                }
+
             }
+            catch (Exception)
+            {
+                MessageBox.Show("Por favorcargar una url");
+            }
+
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             ABMImagen aBMImagen = new ABMImagen(articulo);
             aBMImagen.ShowDialog();
-            CargarImagen(articulo.Imagenes.Count - 1);
+            if (articulo != null)
+            {
+                CargarImagen(articulo.Imagenes.Count - 1);
+            }
+
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            ABMImagen aBMImagen = new ABMImagen(articulo, (int)PcbArticulo.Tag);
-            aBMImagen.ShowDialog();
-            CargarImagen((int)PcbArticulo.Tag);
+            if (PcbArticulo.Tag != null)
+            {
+                ABMImagen aBMImagen = new ABMImagen(articulo, (int)PcbArticulo.Tag);
+                aBMImagen.ShowDialog();
+                CargarImagen((int)PcbArticulo.Tag);
+            }
+
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if(articulo.Imagenes.Count>1)
+            if (articulo != null)
             {
-                articulo.Imagenes.RemoveAt((int)PcbArticulo.Tag);
-                CargarImagen(0);
-                MessageBox.Show("Imagen eliminada. Recuerde guardar el articulo completo para guardar los cambios en las imagenes");
+                if (articulo.Imagenes.Count > 1)
+                {
+                    articulo.Imagenes.RemoveAt((int)PcbArticulo.Tag);
+                    CargarImagen(0);
+                    MessageBox.Show("Imagen eliminada. Recuerde guardar el articulo completo para guardar los cambios en las imagenes");
+                }
+                else
+                {
+                    MessageBox.Show("El articulo debe tener por lo menos una imagen");
+                }
             }
-            else
-            {
-                MessageBox.Show("El articulo debe tener por lo menos una imagen");
-            }
+
         }
     }
 }

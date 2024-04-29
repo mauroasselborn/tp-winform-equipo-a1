@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Dominio;
+﻿using Dominio;
 using Negocio;
+using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
 
 
 namespace Prog3_TP2_WinForm
@@ -28,21 +22,29 @@ namespace Prog3_TP2_WinForm
 
             try
             {
-                categoria.Descripcion = txtDescripcion.Text;
-                categoriaNegocio.Agregar(categoria);
-                txtDescripcion.Text = "";
-                Cargar();
-                MessageBox.Show("Agregado Correctamente");
+                if (txtDescripcion.Text != "")
+                {
+                    categoria.Descripcion = txtDescripcion.Text;
+                    categoriaNegocio.Agregar(categoria);
+                    txtDescripcion.Text = "";
+                    Cargar();
+                    MessageBox.Show("Agregado Correctamente");
+                }
+                else
+                {
+                    MessageBox.Show("Ingresar datos");
+                }
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());;
+                MessageBox.Show(ex.ToString()); ;
             }
         }
 
         private void frmMenuCategorias_Load(object sender, EventArgs e)
         {
-            Cargar();            
+            Cargar();
         }
 
         private void Cargar()
