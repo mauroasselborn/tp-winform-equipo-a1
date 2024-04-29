@@ -86,6 +86,7 @@
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(380, 200);
             this.Name = "frmEditarCategoria";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Editar Categoria";
             this.Load += new System.EventHandler(this.frmEditarCategoria_Load);
             this.ResumeLayout(false);
