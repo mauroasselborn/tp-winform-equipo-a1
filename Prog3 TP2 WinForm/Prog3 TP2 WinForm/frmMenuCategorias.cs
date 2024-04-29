@@ -30,6 +30,7 @@ namespace Prog3_TP2_WinForm
             {
                 categoria.Descripcion = txtDescripcion.Text;
                 categoriaNegocio.Agregar(categoria);
+                txtDescripcion.Text = "";
                 Cargar();
                 MessageBox.Show("Agregado Correctamente");
             }
@@ -62,57 +63,32 @@ namespace Prog3_TP2_WinForm
                 try
                 {
                     categoriaNegocio.Eliminar(categoria.Id);
-                    dgvListaCategorias.DataSource = categoriaNegocio.listar();
+                    Cargar();
                     MessageBox.Show("Baja Realizada");
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.ToString()); ;
                 }
-                finally
-                {
-                    Cargar();
-                }
             }
         }
 
         private void btnEditarCategoria_Click(object sender, EventArgs e)
         {
-            
-            CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
-            Categoria categoria = (Categoria)dgvListaCategorias.CurrentRow.DataBoundItem;
-
-            if (btnEditarCategoria.Text == "Editar")
+            if (dgvListaCategorias.CurrentRow != null)
             {
-                txtDescripcion.Text = categoria.Descripcion;
-                btnEditarCategoria.Text = "Guardar";
+                Categoria Seleccion = (Categoria)dgvListaCategorias.CurrentRow.DataBoundItem;
+
+                frmEditarCategoria editar = new frmEditarCategoria(Seleccion);
+                editar.ShowDialog();
+                Cargar();
             }
             else
             {
-                try
-                {
-                    if (txtDescripcion.Text.Length > 0)
-                    {
-                        categoriaNegocio.Editar(categoria.Id, txtDescripcion.Text);
-                        dgvListaCategorias.DataSource = categoriaNegocio.listar();
-                        MessageBox.Show("Editado Correctamente");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Debe Igresar una Descripcion");
-                    }
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message.ToString()); ;
-                }
-                finally
-                {
-                    btnEditarCategoria.Text = "Editar";
-                }
+                MessageBox.Show("Seleccione una marca para editar");
             }
         }
+
 
         private void txtFiltro_KeyUp(object sender, KeyEventArgs e)
         {
