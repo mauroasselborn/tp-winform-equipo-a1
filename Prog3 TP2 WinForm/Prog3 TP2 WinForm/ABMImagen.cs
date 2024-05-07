@@ -38,7 +38,7 @@ namespace Prog3_TP2_WinForm
             if (_indice == -1)
             {
                 Imagen imagen = new Imagen();
-                if (imagen.ImagenUrl != null)
+                if (TxtUrlImg.Text != "")
                 {
                     imagen.IdArticulo = _articulo.Id;
                     imagen.ImagenUrl = TxtUrlImg.Text;

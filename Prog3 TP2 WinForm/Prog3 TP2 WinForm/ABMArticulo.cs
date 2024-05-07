@@ -173,8 +173,6 @@ namespace Prog3_TP2_WinForm
             {
                 if (PcbArticulo.Tag != null)
                 {
-                    if ((int)PcbArticulo.Tag > 0)
-                        MessageBox.Show("Por favorcargar una url");
                     {
                         int indice = ((int)PcbArticulo.Tag) - 1;
                         CargarImagen(indice);

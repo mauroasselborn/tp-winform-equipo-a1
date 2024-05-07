@@ -90,7 +90,7 @@ namespace Negocio
 
             try
             {
-                accesoDatos.setearConsulta("UPDATE Articulos SET Codigo = '" + articulo.Codigo + "',Nombre = '" + articulo.Nombre + "',Descripcion = '" + articulo.Descripcion + "' ,Idmarca = " + articulo.Marca.Id + ",IdCategoria =" + articulo.Categoria.Id + " ,Precio =" + articulo.Precio + "where Id = " + articulo.Id + "");
+                accesoDatos.setearConsulta("UPDATE Articulos SET Codigo = '" + articulo.Codigo + "',Nombre = '" + articulo.Nombre + "',Descripcion = '" + articulo.Descripcion + "' ,Idmarca = " + articulo.Marca.Id + ",IdCategoria =" + articulo.Categoria.Id + " ,Precio =" + Math.Round(articulo.Precio, 0) + "where Id = " + articulo.Id + "");
                 accesoDatos.ejecutarAccion();
 
                 ImagenNegocio imagenNegocio = new ImagenNegocio();
@@ -98,7 +98,7 @@ namespace Negocio
                 List<Imagen> imagenesViejas = imagenNegocio.listar(articulo.Id);
                 foreach (Imagen imagenvieja in imagenesViejas)
                 {
-                    if(!articulo.Imagenes.Any(X=>X.Id==imagenvieja.Id))
+                    if (!articulo.Imagenes.Any(X => X.Id == imagenvieja.Id))
                     {
                         imagenNegocio.Eliminar(imagenvieja.Id);
                     }
@@ -106,7 +106,7 @@ namespace Negocio
 
                 foreach (Imagen imagen in articulo.Imagenes)
                 {
-                    if(imagen.Id==0)
+                    if (imagen.Id == 0)
                         imagenNegocio.Agregar(imagen);
                     else
                         imagenNegocio.Editar(imagen);
