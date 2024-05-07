@@ -64,11 +64,17 @@
     <Compile Include="ABMArticulo.Designer.cs">
       <DependentUpon>ABMArticulo.cs</DependentUpon>
     </Compile>
-    <Compile Include="EditarCategoria.cs">
+    <Compile Include="frmEditarCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditarCategoria.Designer.cs">
-      <DependentUpon>EditarCategoria.cs</DependentUpon>
+    <Compile Include="frmEditarCategoria.Designer.cs">
+      <DependentUpon>frmEditarCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAgregarCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAgregarCategoria.Designer.cs">
+      <DependentUpon>frmAgregarCategoria.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMenuCategorias.cs">
       <SubType>Form</SubType>
@@ -105,8 +111,11 @@
     <EmbeddedResource Include="ABMArticulo.resx">
       <DependentUpon>ABMArticulo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditarCategoria.resx">
-      <DependentUpon>EditarCategoria.cs</DependentUpon>
+    <EmbeddedResource Include="frmAgregarCategoria.resx">
+      <DependentUpon>frmAgregarCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditarCategoria.resx">
+      <DependentUpon>frmEditarCategoria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMenuCategorias.resx">
       <DependentUpon>frmMenuCategorias.cs</DependentUpon>

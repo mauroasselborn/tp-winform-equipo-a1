@@ -17,29 +17,9 @@ namespace Prog3_TP2_WinForm
 
         private void btnAgregarCategoria_Click(object sender, EventArgs e)
         {
-            Categoria categoria = new Categoria();
-            CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
-
-            try
-            {
-                if (txtDescripcion.Text != "")
-                {
-                    categoria.Descripcion = txtDescripcion.Text;
-                    categoriaNegocio.Agregar(categoria);
-                    txtDescripcion.Text = "";
-                    Cargar();
-                    MessageBox.Show("Agregado Correctamente");
-                }
-                else
-                {
-                    MessageBox.Show("Ingresar datos");
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString()); ;
-            }
+            frmAgregarCategoria agregarCategoria = new frmAgregarCategoria();
+            agregarCategoria.ShowDialog();
+            Cargar();
         }
 
         private void frmMenuCategorias_Load(object sender, EventArgs e)
@@ -87,7 +67,7 @@ namespace Prog3_TP2_WinForm
             }
             else
             {
-                MessageBox.Show("Seleccione una marca para editar");
+                MessageBox.Show("Seleccione una Categoria para editar");
             }
         }
 
