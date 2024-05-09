@@ -40,7 +40,7 @@ namespace Negocio
                     articulo.Imagenes = new List<Imagen>();
                     articulo.Imagenes = imagenNegocio.listar(articulo.Id);
 
-                    articulo.Precio = (decimal)accesoDatos.Lector["Precio"];
+                    articulo.Precio = Math.Round(Convert.ToDecimal(accesoDatos.Lector["Precio"]),2);
 
                     lstArticulo.Add(articulo);
                 }
@@ -63,12 +63,13 @@ namespace Negocio
 
             try
             {
-                accesoDatos.setearConsulta("INSERT INTO Articulos (Codigo,Nombre,Descripcion,Idmarca,IdCategoria,Precio) VALUES ('" + articulo.Codigo + "','" + articulo.Nombre + "','" + articulo.Descripcion + "'," + articulo.Marca.Id + "," + articulo.Categoria.Id + "," + Math.Round(articulo.Precio, 2) + ")");
-                accesoDatos.ejecutarAccion();
+                accesoDatos.setearConsulta("INSERT INTO Articulos (Codigo,Nombre,Descripcion,Idmarca,IdCategoria,Precio) VALUES ('" + articulo.Codigo + "','" + articulo.Nombre + "','" + articulo.Descripcion + "'," + articulo.Marca.Id + "," + articulo.Categoria.Id + "," + Math.Round(articulo.Precio, 2) + ") SELECT @@IDENTITY AS ID");
+                articulo.Id=accesoDatos.ejecutarAccion();
 
                 ImagenNegocio imagenNegocio = new ImagenNegocio();
                 foreach (Imagen imagen in articulo.Imagenes)
                 {
+                    imagen.IdArticulo = articulo.Id;
                     imagenNegocio.Agregar(imagen);
                 }
 
@@ -90,7 +91,7 @@ namespace Negocio
 
             try
             {
-                accesoDatos.setearConsulta("UPDATE Articulos SET Codigo = '" + articulo.Codigo + "',Nombre = '" + articulo.Nombre + "',Descripcion = '" + articulo.Descripcion + "' ,Idmarca = " + articulo.Marca.Id + ",IdCategoria =" + articulo.Categoria.Id + " ,Precio =" + Math.Round(articulo.Precio, 0) + "where Id = " + articulo.Id + "");
+                accesoDatos.setearConsulta("UPDATE Articulos SET Codigo = '" + articulo.Codigo + "',Nombre = '" + articulo.Nombre + "',Descripcion = '" + articulo.Descripcion + "' ,Idmarca = " + articulo.Marca.Id + ",IdCategoria =" + articulo.Categoria.Id + " ,Precio =" + Math.Round(articulo.Precio, 2) + "where Id = " + articulo.Id + "");
                 accesoDatos.ejecutarAccion();
 
                 ImagenNegocio imagenNegocio = new ImagenNegocio();

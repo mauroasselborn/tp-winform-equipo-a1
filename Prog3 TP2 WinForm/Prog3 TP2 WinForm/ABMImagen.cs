@@ -1,5 +1,6 @@
 ﻿using Dominio;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace Prog3_TP2_WinForm
@@ -37,11 +38,13 @@ namespace Prog3_TP2_WinForm
         {
             if (_indice == -1)
             {
+                if (_articulo.Imagenes == null)
+                    _articulo.Imagenes = new List<Imagen>();
                 Imagen imagen = new Imagen();
                 if (TxtUrlImg.Text != "")
                 {
                     imagen.IdArticulo = _articulo.Id;
-                    imagen.ImagenUrl = TxtUrlImg.Text;
+                    imagen.ImagenUrl = TxtUrlImg.Text; 
                     _articulo.Imagenes.Add(imagen);
                     MessageBox.Show("Imagen agregada. Recuerde guardar el articulo completo para guardar los cambios en las imagenes");
                     Close();

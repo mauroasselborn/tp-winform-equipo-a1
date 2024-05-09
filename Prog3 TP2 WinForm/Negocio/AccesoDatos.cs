@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace Negocio
 {
@@ -43,13 +44,14 @@ namespace Negocio
             }
         }
 
-        public void ejecutarAccion()
+        public int ejecutarAccion()
         {
             comando.Connection = conexion;
             try
             {
                 conexion.Open();
-                comando.ExecuteNonQuery();
+                int id = Convert.ToInt32(comando.ExecuteScalar());
+                return id;
             }
             catch (Exception ex)
             {

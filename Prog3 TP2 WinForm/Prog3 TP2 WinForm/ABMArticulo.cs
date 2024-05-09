@@ -37,7 +37,7 @@ namespace Prog3_TP2_WinForm
             {
 
                 this.Text = "Agregar";
-                Articulo articulo = new Articulo();
+                articulo = new Articulo();
             }
             else
             {
@@ -59,21 +59,13 @@ namespace Prog3_TP2_WinForm
             ArticuloNegocio articuloNegocio = new ArticuloNegocio();
             try
             {
-                if (this.articulo == null)
+                if (this.articulo.Id == 0)
                 {
-                    Articulo articulo = new Articulo();
-
                     articulo.Codigo = TxtCodigo.Text;
                     articulo.Nombre = TxtNombre.Text;
                     articulo.Descripcion = TxtDescripcion.Text;
                     if (TxtPrecio.Text != "")
                         articulo.Precio = Convert.ToDecimal(TxtPrecio.Text);
-
-                    if (TxtUrlImg.Text != "")
-                    {
-                        articulo.Imagenes[0] = new Imagen();
-                        articulo.Imagenes[0].ImagenUrl = TxtUrlImg.Text;
-                    }
 
                     articulo.Categoria = (Categoria)cmbCategoria.SelectedItem;
                     articulo.Marca = (Marca)cmbMarca.SelectedItem;
